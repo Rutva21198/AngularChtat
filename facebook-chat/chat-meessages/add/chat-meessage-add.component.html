@@ -1,0 +1,22 @@
+
+<body>
+<div class="container">
+<h3 class=" text-center">Messaging Chat</h3>
+<div class="messaging">
+     
+            <div class="recent_heading">
+              <h4>Chat List</h4>
+            </div>
+           
+          </div>
+          <div class="inbox_chat">
+            <div class="chat_list active_chat">
+              <div class="chat_people">
+                
+                <div class="chat_ib" *ngFor="let p of chatMeessage">
+                  <button  [routerLink]="['/Chat',p.UserID]"  >{{p.Name}} </button>
+                </div>
+              </div>
+            </div>
+    </div></div>
+    </body>
