@@ -1,0 +1,17 @@
+p {
+    font-family: Lato;
+  }
+  .navbar navbar-light bg-light justify-content-between{
+    background-color: blue;
+  }
+  .heading-color{
+    color: blue;
+  }
+  .container{
+    align-content: center;
+  }
+  body {
+  
+    background-color: #17a2b8;
+    height: 100vh;
+  }

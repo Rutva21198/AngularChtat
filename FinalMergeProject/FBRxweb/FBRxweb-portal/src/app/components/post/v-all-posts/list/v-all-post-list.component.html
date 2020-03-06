@@ -1,0 +1,109 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!-- <div class="container">
+  <button (click)="createPost()" >Create Post</button>
+</div> -->
+
+
+<section>
+    <div class="container" style="margin-left: 500px;">
+      
+      <button (click)="createPost()" style="font-size: 20px;">Create Post</button>
+      <!-- <button (click)="show()" >Show Post</button> -->
+      <!-- <p>{{vAllPosts | json}}</p> -->
+      
+      <div class="box image" *ngFor="let u of vAllPosts" >
+        <div class="box-header">
+          <h3><img src=" {{u.post}} "> {{u.userName}}  
+            <!-- <span>{{u.post}}<i class="fa fa-globe"></i></span> -->
+          </h3> 
+          <p style="font-size: 20px;">{{u.createdDateTime}}</p>
+          <img src="assets/img/fb1.jfif" style="width: 500px;"><br>
+          <p style="font-size: 20px;">{{u.post}}</p>
+           <!-- <img src=" {{u.post}} ">  -->
+           <div class="btnsize" >
+          <button (click)="likeButton(u.postId)" style="font-size:20px; " [disabled] = "selectorDisplayLike">Like</button>
+          
+          <button (click)="commentButton(u.postId)"style="font-size:20px;">Comment</button>
+
+          <button (click)="shareButton(u.postId)"style="font-size:20px;"[disabled] = "selectorDisplayShare">Share</button>
+           </div>
+          <div class="box-new-comment">
+            <img src="" alt="" />
+            <div class="content">
+              <form [formGroup]="createComment">
+              <div class="row">
+                <textarea placeholder="write a comment..." formControlName="comment" style="width: 400px;"></textarea>
+              </div>
+              </form>
+              <div class="row">
+                <span class="ion-android-attach"></span>
+                <span class="fa fa-smile-o"></span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- <span><i class="fa fa-angle-down"></i></span>
+          <div class="window"><span></span></div>
+        </div>
+        <div class="box-content">
+          <div class="content">
+            <img src="" alt="pic" />
+          </div>
+          <div class="bottom">
+            <p>{{u.Post}}</p>
+            <span><span class="fa fa-search-plus"></span></span>
+          </div>
+        </div>
+        <div class="box-likes">
+          <div class="row">
+            <span><a href="#"><img src="" alt="1" /></a></span>
+            <span><a href="#"><img src="" alt="2" /></a></span>
+            <span><a href="#"><img src="" alt="3" /></a></span>
+            <span><a href="#">+99</a></span>
+            <span>Like this</span>
+          </div>
+          <div class="row">
+            <span>145 comments</span>
+          </div>
+        </div>
+        <div class="box-buttons">
+          <div class="row">
+            <button><span class="fa fa-thumbs-up"></span></button>
+            <button><span class="ion-chatbox-working"></span></button>
+            <button><span class="ion-share"></span></button>
+          </div>
+        </div>
+        <div class="box-click"><span><i class="ion-chatbox-working"></i> View 140 more comments</span></div>
+        <div class="box-comments">
+          <div class="comment"><img src="" alt="Profilepic" />
+            <div class="content">
+              <h3><a href="">Manish</a><span><time> 1 hr - </time><a href="#">Like</a></span></h3>
+              <p> Nice pic</p>
+            </div>
+          </div>
+          <div class="comment"><img src="" alt="Profilepic" />
+            <div class="content">
+              <h3><a href="">gagan</a><span><time> 1 hr - </time><a href="#">Like</a></span></h3>
+              <p>The life is perfect, </p>
+            </div>
+          </div>
+         
+        
+        </div>
+          <div class="box-new-comment">
+            <img src="" alt="Profilepic" />
+            <div class="content">
+              <div class="row">
+                <textarea placeholder="write a comment..."></textarea>
+              </div>
+              <div class="row">
+                <span class="ion-android-attach"></span>
+                <span class="fa fa-smile-o"></span>
+              </div>
+            </div> -->
+          </div>
+      </div>
+      </div>
+      </section>

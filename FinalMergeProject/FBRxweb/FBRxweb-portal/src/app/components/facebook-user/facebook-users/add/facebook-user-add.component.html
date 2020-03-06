@@ -1,0 +1,78 @@
+
+<!-- <app-navbar></app-navbar> -->
+
+  <div class="container"  >
+    <!-- <div class="container" > class="was-validated"-->
+  <div class="jumbotron">
+<form class="was-validated" [formGroup]="facebookUserFormGroup" >
+  <div >
+       <h1 style="margin:20px" >Create a new account</h1>
+      </div>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label >First Name</label>
+      <input type="text" class="form-control is-invalid"   placeholder="Enter Name" required="required" formControlName="firstName">
+     
+    </div>
+    <div class="col-md-4 mb-3">
+      <label>Last Name</label>
+      <input type="text" class="form-control"  placeholder="Enter Name" formControlName="lastName" required>
+    </div>
+    
+  </div>
+
+  <div class="form-row">
+      <div class="col-md-8 mb-3">
+        <label >Mobile No</label>
+        <input type="number" class="form-control"  placeholder="Enter Mobile Number" formControlName="mobileNo" required >
+      </div>
+      
+    </div>
+ 
+    <div class="form-row">
+    <div class="col-md-8 mb-3">
+      <label >Email</label>
+      <input type="text" class="form-control"  placeholder="Enter Email Address" formControlName="email" required >
+    </div>
+    
+  </div>
+     <div class="form-row">
+    <div class="col-md-8 mb-3">
+      <label >Password</label>
+      <input type="password" class="form-control"  placeholder="Enter Password" required formControlName="password">
+    </div>
+
+  </div>
+  <div class="form-row">
+ <div class="col-md-8 mb-3">
+   <label >BirthDate</label>
+   <input type="date" class="form-control"  placeholder="Enter Birth Date" required formControlName="dateOfBirth">
+ </div>
+
+    </div>
+<br>   
+ <div >
+      <label>Gender</label>
+      <br>
+    <div class="form-check form-check-inline">
+      <input  type="radio" formControlName="genderAO"  name="genderAO"  value="1">
+  <label class="form-check-label" >Male</label>
+</div>
+<div class="form-check form-check-inline">
+  <input  type="radio" name="genderAO"  value="2" formControlName="genderAO" >
+  <label class="form-check-label" >Female</label>
+</div>
+<div class="form-check form-check-inline">
+  <input  type="radio" name="genderAO" formControlName="genderAO"  value="3" >
+  <label class="form-check-label" >Custom</label>
+</div>
+    </div>
+    <br>
+ 
+  <button class="btn btn-success" (click)="submit()" >Sign Up</button>
+</form>
+  </div>
+  </div>
+
+
+ 

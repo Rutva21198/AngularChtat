@@ -1,0 +1,110 @@
+
+<html>
+    <head>
+      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <style>
+  
+  
+  .sidenav {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    
+    overflow-x: hidden;
+    padding-top: 20px;
+  
+    margin-top:60px;
+  }
+  .sidenav button{
+    margin-left:30px;
+  }
+  </style>
+  
+    </head>
+  
+  <body>
+  
+  <div >
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light " style="background-color:#4267b2;">
+  <a class="navbar-brand"  href="#"><button ><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTH8-xlC9AsX-VkkrsJVIS9NoUGrBKkmb2y8fyFSREm5M4620PS" style="height:30px"> </button></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse " id="navbarSupportedContent" >
+       <form class="form-inline my-2 my-lg-0" [formGroup]="searchForm">
+           <div [hidden]="hide">
+        <input class="form-control mr-sm-3" type="text"  formControlName="n"  (keyup)="Search()" placeholder="Search" aria-label="Search">
+        <button class="btn btn-primary my-2 my-sm-0"  (click)="Search()"  >Search</button>
+    </div>
+      </form>
+      <ul class="nav justify-content-end ml-auto" >
+        
+         <li class="nav-item">
+            <button (click)="login()" [hidden]="show">LogInExistingAccount</button>
+        </li> 
+        
+        <li class="nav-item">
+          <button class="nav-link mr-2"  style="background-color:#4267b2;color:white;" (click)="home()" [hidden]="display">Home</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link mr-2"  style="background-color:#4267b2;color:white;" (click)="profile()" [hidden]="display">Profile</button>
+          </li>
+        <li class="nav-item">
+            <button class="nav-link mr-2"  style="background-color:#4267b2;color:white;" (click)="messenger()"  [hidden]="display">Messenger</button>
+          </li>
+         
+        <li class="nav-item">
+          <button class="nav-link" (click)="logout()" style="background-color:#4267b2;color:white;"  [hidden]="display">Logout</button>
+        </li>
+
+      </ul>
+     
+    </div>
+  </nav>
+  <div class="sidenav">
+  
+  <!-- <nav class="nav " style="width:10%;" >
+    <button type="button" class=" btn btn-light" (click)="work()">Work Details</button>
+    
+    <button class=" btn btn-light"  (click)="education()">Education Detail</button>
+    
+    <button class=" btn btn-light" >Messenger</button>
+    <button class=" btn btn-light" >Change Password</button>
+    <button class=" btn btn-light" >Log activity</button>
+    <button type="button" class=" btn btn-light">User Profile</button>
+    
+  
+  </nav> -->
+  <div [hidden]="hide">
+    <div  *ngFor="let nm of result">
+        <h5>{{nm.FirstName}} {{nm.LastName}}</h5>
+        
+    </div>
+  </div>
+  
+  <router-outlet></router-outlet>
+  </div>
+  </div>          
+        <!-- <div class="col-md-6 offset-md-3" [hidden]="password">
+                  <form [formGroup]="searchForm">
+                    <div class="form-group">
+                      <label>Old Password</label>
+                      <input type="text" formControlName="oldPassword" class="form-control"  />
+                  </div>
+                  <div class="form-group">
+                      <label>New Password</label>
+                      <input type="text" formControlName="newPassword" class="form-control"  />    
+                  </div> 
+                  <button  class="btn btn-primary" (click)="changePassword()">Save</button>
+  
+                  </form>
+        </div>    
+          -->
+  </body>
+  </html>
+  

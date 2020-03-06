@@ -1,0 +1,69 @@
+
+ <div [hidden]="show" class="col-md-6 offset-md-3">
+    <form [formGroup]="educationDetailFormGroup">
+    <div class="form-group">
+        <label>Course Name</label>
+        <input type="text" formControlName="courseName" class="form-control"  />
+    </div>
+    <div class="form-group">
+        <label>CollegeSchool Name</label>
+        <input type="text" formControlName="collegeSchoolName" class="form-control"  />
+    </div>
+    <div class="form-group">
+        <label>UniversityBoard Name</label>
+        <input type="text" formControlName="universityBoardName" class="form-control"  />    
+    </div>
+    <div class="form-group">
+        <label>City</label>
+        <input type="text" formControlName="city" class="form-control"  />    
+    </div>
+    <div class="form-group">
+        <label>Course Start Date</label>
+        <input type="date" formControlName="courseStartDate" class="form-control"  />    
+    </div>
+    <div class="form-group">
+        <label>Course End Date</label>
+        <input type="date" formControlName="courseEndDate" class="form-control"  />    
+    </div>
+    <button  class="btn btn-primary" (click)="Save()">Save</button>
+    
+    </form> 
+</div> 
+<!-- <div [hidden]="hide">
+<table >
+    <tr>
+        <th></th>
+    </tr>
+    <tbody *ngFor="let r of result;">
+        <tr>
+           Studied <td>{{r.courseName}}</td>
+         At<td>{{r.collegeSchoolName}}</td>
+          
+        
+        </tr>
+        
+    </tbody>
+</table>
+
+</div> -->
+                <div [hidden]="hide">
+                    <h3>Education Detail</h3>
+               <input type="text" [(ngModel)]="id" (keyup)="GetBy(id)"> 
+                            <table >
+                                <!-- <tr><th>Course </th>
+                                <th>College</th>
+                                <th>City</th>
+                                </tr> -->
+                                <tbody *ngFor="let r of educationDetails;">
+                                    <tr>
+                                        <td><b>Studied</b>   {{r.courseName}}</td>
+                                        <td><b>At</b>   {{r.collegeSchoolName}}</td>         
+                                        <td>  ,{{r.city}}</td>
+                                        
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>   
+                            <button (click)="ADD()">Add Education</button>          
+                </div>
+               

@@ -1,0 +1,136 @@
+
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+ 
+
+<div class="container">
+	<div class="row">
+	    
+	    <div class="col-md-8 col-md-offset-2">
+	        
+    		<h1>Create post</h1>
+    		
+    		<!-- <form [formGroup]="createPost"> -->
+           <div class="box-header">
+        <h6><a href=""><img src="" alt="profile pic" />User name</a>
+          
+        </h6>
+        <span><i class="fa fa-angle-down"></i></span>
+        <div class="window"><span></span></div>
+	  </div>
+	    <form [formGroup]="postMessageFormGroup"> 
+		 <!-- <form [formGroup]="createPost">  -->
+        <div class="form-group">
+    		        <label for="description">whats on your mind</label>
+                    <textarea rows="5" cols= "50" class="form-control"  formControlName="message" ></textarea>
+                    <button (click)="sendMessage()"class="btn btn-primary"style="margin-top: 10px;">
+    		            Post Message
+    		        </button>
+    		    </div>
+		<!-- </form> -->
+             </form>
+            <!-- <form  [formGroup]="createMedia"> --> 
+			 <form [formGroup]="postMediaFormGroup">   
+    		    <div class="form-group">
+    		        <label for="title" style="margin-top: 50px;">Photo/Video<span class="require">*</span></label>
+                    <input type="file" class="form-control" formControlName="media" name="media" />
+                    <button (click)="sendMedia()" class="btn btn-primary" style="margin-top: 10px;">
+    		            Post Media
+                </button> <br>
+                <button (click)="show()" style="font-size: 30px;margin-top: 50px;">Show Post</button>
+            </div>
+            <section> 
+              <div class="container">
+                
+               <!-- <span>{{u.post}}<i class="fa fa-globe"></i></span> -->
+                
+                <!-- <p>{{vAllPosts | json}}</p> -->
+                <div class="box image" *ngFor="let u of result" style="margin-top: 80px;">
+                  <div class="box-header">
+                    <h3><img src=" {{u.post}} "> {{u.userName}}  
+                      <!-- <span>{{u.post}}<i class="fa fa-globe"></i></span> -->
+                    </h3> 
+                    <p style="font-size: 20px;">{{u.createdDateTime}}</p>
+                    <img src="assets/img/fb1.jfif" style="width: 500px;"><br>
+                    <p style="font-size: 20px;">{{u.post}}</p>
+                     <!-- <img src=" {{u.post}} ">  -->
+                     <div class="btnsize" style="">
+                    <button (click)="likeButton(u.postId)" style="font-size:20px;">Like</button>
+                    
+                    <button (click)="commentButton(u.postId)"style="font-size:20px;">Comment</button>
+          
+                    <button (click)="shareButton(u.postId)"style="font-size:20px;">Share</button>
+                     </div>
+                    <div class="box-new-comment">
+                      <img src="" alt="" />
+                      <div class="content">
+                        <form [formGroup]="createComment">
+                        <div class="row">
+                          <textarea placeholder="write a comment..." formControlName="comment" style="width: 400px;"></textarea>
+                        </div>
+                        </form>
+                        <div class="row">
+                          <span class="ion-android-attach"></span>
+                          <span class="fa fa-smile-o"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="box image" *ngFor="let u of result">
+                  <div class="box-header">
+                    <h3>{{u.userName}}
+                     
+                    </h3>
+                    <p>{{u.post}}</p>
+                <p>{{u.createdDateTime}}</p>
+                <p>{{u.like}}</p>
+              </div>
+              </div> -->
+            </div>
+            
+          </section>
+    		    
+			</form>  
+    		 
+    		    
+  
+		</div>
+		
+	</div>
+</div>
+
+<!------ Include the above in your HEAD tag ---------->
+<!-- <section>
+
+ <div class="box image">
+      <div class="box-header">
+        <h3><a href=""><img src="" alt="profile pic" />User name</a>
+          <span>March 21,18:45pm <i class="fa fa-globe"></i></span>
+        </h3>
+        <span><i class="fa fa-angle-down"></i></span>
+        <div class="window"><span></span></div>
+      </div>
+      <div class="box-content">
+        <div class="content">
+          <img src="" alt="pic" />
+        </div>
+        <div class="bottom">
+          <p>The life is much more interesant, when you remmenber the last time</p>
+          <span><span class="fa fa-search-plus"></span></span>
+        </div>
+      </div>
+      
+      <div class="box-buttons">
+        <div class="row">
+          <button><span class="fa fa-thumbs-up"></span></button>
+          <button><span class="ion-chatbox-working"></span></button>
+          <button><span class="ion-share"></span></button>
+        </div>
+      </div>
+  
+    </div>   </section>   -->
+   
+

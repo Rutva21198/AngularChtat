@@ -1,0 +1,32 @@
+{
+  "projects": {
+    "api": "FBRxweb-portal.Api",
+    "model": "FBRxweb-portal.Models",
+    "context": "FBRxweb-portal.BoundedContext",
+    "domain": "FBRxweb-portal.Domain",
+	"unitOfWork": "FBRxweb-portal.UnitOfWork",
+    "infrastructure": "FBRxweb-portal.Infrastructure",
+    "azureFunctionHttp":"",
+    "portal":"",
+    "azureFunctionBackground":""
+  },
+  "path": {
+    "dbConnection": {
+      "main": "Database.ConnectionString.Main"
+    },
+    "folder": {
+      "model": "DbEntities",
+      "context": "",
+	  "enums": "",
+	  "localizeValidationMessage": "wwwroot"
+    }
+  },
+  "annotations": {
+    "rxweb": false
+  },
+  "config": {
+    "generateEnums": false,
+    "commanTableSchema": "dbo",
+    "validationMessageLocalizationId": "15"
+  }
+}

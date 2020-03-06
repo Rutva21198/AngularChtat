@@ -1,0 +1,43 @@
+<div>
+    <div class="col-md-6 offset-md-3" [hidden]="show">
+        <form [formGroup]="facebookUserWorkFormGroup">
+                        <div class="form-group">
+                            <label>Work Name</label>
+                            <input type="text" formControlName="workName" class="form-control"  />
+                        </div>
+                        <div class="form-group">
+                            <label>Work Description</label>
+                            <input type="text" formControlName="workDescription" class="form-control"  />
+                        </div>
+                        <div class="form-group">
+                            <label>Work Start Date</label>
+                            <input type="date" formControlName="workStartDate" class="form-control"  />    
+                        </div>
+                        <div class="form-group">
+                            <label>Work End Date</label>
+                            <input type="date" formControlName="workEndDate" class="form-control"  />    
+                        </div> 
+                        <button (click)="Post()">Add </button>
+         </form> 
+    </div>
+          <div [hidden]="hide">
+                        <table >
+                            <h3>Work Details</h3>
+                            <input type="text" [(ngModel)]="id" (keyup)="GetBy(id)"> 
+                            <tr>
+                                <th>Work Name</th>
+                                <th>Company Name</th>   
+                            </tr>
+                            <tbody *ngFor="let r of facebookUserWorks;">
+                            
+                                <tr>
+                                    <td>{{r.workName}}</td>
+                                <td>{{r.workDescription}}</td>
+                                  <td> <a routerLink="/editWork"> <i class="fa fa-pencil" aria-hidden="true"></i></a></td>  
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <button (click)="form()">Add Details</button>
+             </div>         
+ </div>

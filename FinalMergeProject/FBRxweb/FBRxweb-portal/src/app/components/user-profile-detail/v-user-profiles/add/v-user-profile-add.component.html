@@ -1,0 +1,128 @@
+
+  <html>
+    <head>
+      <style>
+        .coverphoto
+    {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+    .coverphoto1 
+    {
+      position: absolute;
+      top: 10px;
+
+
+    }
+    .profilephoto
+    {
+      position: absolute;
+      top: 290px;
+      left: 410px;
+      height: 40%;
+      width: 50%;
+    }
+    .profilephoto1
+    {
+position: absolute;
+top:170px;
+
+left: 100px;;
+
+
+    }
+    .intro
+      {
+        background-color: white;
+        border-style: groove;
+        width:35%; 
+        height: 100%;
+      }
+      </style>
+    </head>
+    
+  <body> 
+    
+<div class="container" >
+  <h2>{{result.firstName}}    {{result.lastName}}</h2>
+  <!-- <input type="text" [(ngModel)]="id" (keyup)="GetBy(id)">  -->
+                <div class="coverphoto">
+                        <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" class="img-fluid" alt="Responsive image" style="height:400px;width:100%">
+                        <div class="coverphoto1">
+                        <!-- <input type="file" [(ngModel)]="cp"> -->
+                        </div>
+                </div>
+                <div class="profilephoto">      
+                 
+                    <img src="https://image.shutterstock.com/image-photo/colorful-flower-on-dark-tropical-260nw-721703848.jpg" class="rounded-circle" style="height:200px" >
+
+                    <div class="profilephoto1">
+                      <input type="file">
+                    </div>
+                </div>
+
+        <div class="intro">
+          <h3>Intro</h3>
+            <table >
+              <!-- <h3>Details</h3> -->
+              <!-- <tr>
+                    <th>currentCity</th>
+                    <th>Home Town</th>   
+              </tr>     -->
+                           <!-- <tr >
+                              <b> <td>{{result.firstName}}</td> </b> 
+                                                      
+                              <b> <td>{{result.lastName}}</td>   </b>  &nbsp;&nbsp;
+                           </tr> -->
+                           <tr>      
+                            <td> <b>Bio</b>&nbsp;{{result.bio}}</td>
+                          </tr>
+                           <tr>      
+                      <td> <b>Lives In</b>&nbsp;{{result.currentCity}}</td>
+                    </tr>
+                    <tr>
+                      <td><b>From</b>&nbsp;{{result.homeTown}}</td>
+                    </tr>
+                    <tr>
+                      <td><b>Relationship</b>&nbsp;{{result.relationship}}</td>
+                    </tr>
+
+            </table>
+         </div>
+        </div>
+        <!-- {{result|json}} -->
+        <!-- <div class="col-md-6 offset-md-3"> -->
+          <!-- <form [formGroup]="PhotoFormGroup"> -->
+
+            <!-- <div class="form-group" [formGroup]="PhotoFormGroup">
+              <label>Cover</label>
+              <input type="text" formControlName="cover" class="form-control"  />    
+              
+            </div>
+            <button (click)="changeCoverPhoto()">Change Cover</button>
+          
+          <div class="form-group"  [formGroup]="PhotoFormGroup">
+              <label>Profile</label>
+              <input type="text" formControlName="profile" class="form-control"  />    
+              <button (click)="changeProfilePhoto()">Change Profile</button>
+          </div> -->
+          <!-- </form> -->
+      
+
+          </body> 
+</html>
+ <div>
+<!-- {{result|json}} -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
