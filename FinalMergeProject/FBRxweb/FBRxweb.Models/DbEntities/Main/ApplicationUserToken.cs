@@ -23,7 +23,7 @@ namespace FBRxweb.Models.Main
 
         [Range(1, int.MaxValue)]
         [Required]
-        [RelationshipTableAttribue("Users","dbo","","UserId")]
+        [RelationshipTableAttribue("FacebookUsers","dbo","","UserId")]
 		#endregion UserId Annotations
 
         public int UserId { get; set; }
@@ -58,13 +58,13 @@ namespace FBRxweb.Models.Main
 
         public System.DateTimeOffset CreatedDateTime { get; set; }
 
-		#region User Annotations
+		#region FacebookUser Annotations
 
         [ForeignKey(nameof(UserId))]
-        [InverseProperty(nameof(FBRxweb.Models.Main.User.ApplicationUserTokens))]
-		#endregion User Annotations
+        [InverseProperty(nameof(FBRxweb.Models.Main.FacebookUser.ApplicationUserTokens))]
+		#endregion FacebookUser Annotations
 
-        public virtual User User { get; set; }
+        public virtual FacebookUser FacebookUser { get; set; }
 
 
         public ApplicationUserToken()

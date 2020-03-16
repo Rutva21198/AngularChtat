@@ -21,7 +21,7 @@ namespace FBRxweb.Domain.PostModule
         public async Task<object> GetBy(vCheckShareUser parameters)
         {
             //throw new NotImplementedException();
-            return await Uow.Repository<vCheckShareUser>().SingleOrDefaultAsync(t => t.PostId == parameters.PostId);
+            return await Uow.Repository<vCheckShareUser>().FindByAsync(t => t.PostId == parameters.PostId);
         }
 
 

@@ -21,7 +21,7 @@ namespace FBRxweb.Domain.PostModule
         public async Task<object> GetBy(vCheckCommentUser parameters)
         {
             //throw new NotImplementedException();
-            return await Uow.Repository<vCheckCommentUser>().SingleOrDefaultAsync(t => t.PostId == parameters.PostId);
+            return await Uow.Repository<vCheckCommentUser>().FindByAsync(t => t.PostId == parameters.PostId);
         }
         
 

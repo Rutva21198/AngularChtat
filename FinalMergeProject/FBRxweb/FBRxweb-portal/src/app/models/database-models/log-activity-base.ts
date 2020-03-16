@@ -24,5 +24,12 @@ export class LogActivityBase {
 //#endregion postId Prop
 
 
+//#region activity Prop
+        @required()
+        @maxLength({value:50})
+        activity : string;
+//#endregion activity Prop
+
+
 
 }

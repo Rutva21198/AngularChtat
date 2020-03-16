@@ -50,12 +50,10 @@ namespace FBRxweb.Models.Main
 
 		#region SchoolCollegeAO Annotations
 
-        [Range(1,int.MaxValue)]
-        [Required]
         [RelationshipTableAttribue("FBApplicationObjects","dbo","","SchoolCollegeAO")]
 		#endregion SchoolCollegeAO Annotations
 
-        public int SchoolCollegeAO { get; set; }
+        public Nullable<int> SchoolCollegeAO { get; set; }
 
 		#region CourseStartDate Annotations
 

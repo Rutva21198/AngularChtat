@@ -28,7 +28,7 @@
   
   <body>
   
-  <div >
+
   <nav class="navbar fixed-top navbar-expand-lg navbar-light " style="background-color:#4267b2;">
   <a class="navbar-brand"  href="#"><button ><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTH8-xlC9AsX-VkkrsJVIS9NoUGrBKkmb2y8fyFSREm5M4620PS" style="height:30px"> </button></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,17 +37,18 @@
   
     <div class="collapse navbar-collapse " id="navbarSupportedContent" >
        <form class="form-inline my-2 my-lg-0" [formGroup]="searchForm">
-           <div [hidden]="hide">
-        <input class="form-control mr-sm-3" type="text"  formControlName="n"  (keyup)="Search()" placeholder="Search" aria-label="Search">
-        <button class="btn btn-primary my-2 my-sm-0"  (click)="Search()"  >Search</button>
-    </div>
+         
+        <input class="form-control mr-sm-3" type="text"  formControlName="n"  (keyup)="Search()" placeholder="Search" aria-label="Search" [hidden]="display">
+        <button class="btn btn-primary my-2 my-sm-0"  (click)="Search()"  [hidden]="display">Search</button>
+   
       </form>
       <ul class="nav justify-content-end ml-auto" >
         
-         <li class="nav-item">
-            <button (click)="login()" [hidden]="show">LogInExistingAccount</button>
-        </li> 
-        
+         <!-- <li class="nav-item" *ngIf="display;else logout"> -->
+         
+            <li class="nav-item" [hidden]="isShowDashboard">
+                <button (click)="login()" >LogInExistingAccount</button>
+            </li> 
         <li class="nav-item">
           <button class="nav-link mr-2"  style="background-color:#4267b2;color:white;" (click)="home()" [hidden]="display">Home</button>
         </li>
@@ -57,13 +58,15 @@
         <li class="nav-item">
             <button class="nav-link mr-2"  style="background-color:#4267b2;color:white;" (click)="messenger()"  [hidden]="display">Messenger</button>
           </li>
-         
+          <li class="nav-item">
+              <button class="nav-link mr-2"  style="background-color:#4267b2;color:white;" (click)="logActivity()"  [hidden]="display">Log Activity</button>
+            </li>
         <li class="nav-item">
           <button class="nav-link" (click)="logout()" style="background-color:#4267b2;color:white;"  [hidden]="display">Logout</button>
         </li>
-
+    
+      <!-- </ng-template> -->
       </ul>
-     
     </div>
   </nav>
   <div class="sidenav">
@@ -80,7 +83,7 @@
     
   
   </nav> -->
-  <div [hidden]="hide">
+  <div [hidden]="display">
     <div  *ngFor="let nm of result">
         <h5>{{nm.FirstName}} {{nm.LastName}}</h5>
         
@@ -89,7 +92,7 @@
   
   <router-outlet></router-outlet>
   </div>
-  </div>          
+        
         <!-- <div class="col-md-6 offset-md-3" [hidden]="password">
                   <form [formGroup]="searchForm">
                     <div class="form-group">

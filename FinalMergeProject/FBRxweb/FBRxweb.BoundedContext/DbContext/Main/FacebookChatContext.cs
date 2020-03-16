@@ -20,7 +20,8 @@ namespace FBRxweb.BoundedContext.Main
 		public DbSet<ChatMessage> ChatMessage { get; set; }
 		public DbSet<UserChat> UserChat { get; set; }
 		public DbSet<vOnlineUserList> vOnlineUserList { get; set; }
-            #endregion DbSets
+        public DbSet<vAllOtherUser> vAllOtherUser { get; set; }
+        #endregion DbSets
 
 
     }

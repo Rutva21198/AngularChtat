@@ -21,7 +21,7 @@ export class ChatMediaAddComponent extends AbstractChatMedia implements OnInit, 
     result: any;
     chatMedias: List<ChatMedia>;
     chatMessageFormGroup:FormGroup;
-    id= this.activatedRoute.snapshot.paramMap.get("id");;
+    id= this.activatedRoute.snapshot.paramMap.get("id");
 
 
     constructor(private formBuilder: RxFormBuilder,private router:Router,private activatedRoute: ActivatedRoute) {
@@ -36,7 +36,7 @@ export class ChatMediaAddComponent extends AbstractChatMedia implements OnInit, 
         
             console.log(this.id);
       
-        this.subscription = this.post({body:{sender:JSON.parse(sessionStorage.getItem('userData')).userID,receiver:this.id}}).subscribe((t: any) => {
+        this.subscription = this.post({body:{sender:localStorage.getItem('userId'),receiver:this.id}}).subscribe((t: any) => {
             this.chatMedias = JSON.parse(t);
             console.log(t);
         })
@@ -44,26 +44,21 @@ export class ChatMediaAddComponent extends AbstractChatMedia implements OnInit, 
     }
 
     sendMedia() {
-        
-        this.post({path:'api/ChatMedias', body:{Media:this.chatMediaFormGroup.controls.media.value,SenderId:2,ReceiverId:this.id}}).subscribe(t => {
+        this.post({path:'api/ChatMedias', body:{Media:this.chatMediaFormGroup.controls.media.value,SenderId:localStorage.getItem('userId'),ReceiverId:this.id}}).subscribe(t => {
             this.result = t;
             console.log(this.result)
-         
         })
-        this.subscription = this.post({body:{sender:JSON.parse(sessionStorage.getItem('userData')).userID,receiver:this.id}}).subscribe((t: any) => {
-            this.chatMedias = JSON.parse(t);
-        })
-        this.subscription = this.post({body:{sender:JSON.parse(sessionStorage.getItem('userData')).userID,receiver:this.id}}).subscribe((t: any) => {
+        this.subscription = this.post({body:{sender:localStorage.getItem('userId'),receiver:this.id}}).subscribe((t: any) => {
             this.chatMedias = JSON.parse(t);
         })
       this.chatMessageFormGroup=this.formBuilder.group( {media:['']})
     }
     sendMessage(){
-        this.post({path:'api/ChatMessages', body:{Message:this.chatMessageFormGroup.controls.message.value,SenderId:this.id,ReceiverId:2}}).subscribe(t => {
+        this.post({path:'api/ChatMessages', body:{Message:this.chatMessageFormGroup.controls.message.value,SenderId:this.id,ReceiverId:localStorage.getItem('userId')}}).subscribe(t => {
             this.result = t;
             console.log(this.result)
         })
-        this.subscription = this.post({body:{sender:2,receiver:this.id}}).subscribe((t: any) => {
+        this.subscription = this.post({body:{sender:localStorage.getItem('userId'),receiver:this.id}}).subscribe((t: any) => {
             this.chatMedias = JSON.parse(t);
         })
       this.chatMessageFormGroup=this.formBuilder.group( {message:['']})

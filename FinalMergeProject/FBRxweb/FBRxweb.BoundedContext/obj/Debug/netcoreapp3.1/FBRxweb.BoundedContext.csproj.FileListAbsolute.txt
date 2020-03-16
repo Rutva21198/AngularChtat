@@ -64,3 +64,14 @@ C:\Users\radix\Desktop\FinalMergeProject\FBRxweb\FBRxweb.BoundedContext\obj\Debu
 C:\Users\radix\Desktop\FinalMergeProject\FBRxweb\FBRxweb.BoundedContext\obj\Debug\netcoreapp3.1\FBRxweb.BoundedContext.csproj.CopyComplete
 C:\Users\radix\Desktop\FinalMergeProject\FBRxweb\FBRxweb.BoundedContext\obj\Debug\netcoreapp3.1\FBRxweb.BoundedContext.dll
 C:\Users\radix\Desktop\FinalMergeProject\FBRxweb\FBRxweb.BoundedContext\obj\Debug\netcoreapp3.1\FBRxweb.BoundedContext.pdb
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.BoundedContext\bin\Debug\netcoreapp3.1\FBRxweb.BoundedContext.deps.json
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.BoundedContext\bin\Debug\netcoreapp3.1\FBRxweb.BoundedContext.dll
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.BoundedContext\bin\Debug\netcoreapp3.1\FBRxweb.BoundedContext.pdb
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.BoundedContext\bin\Debug\netcoreapp3.1\FBRxweb.Models.dll
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.BoundedContext\bin\Debug\netcoreapp3.1\FBRxweb.Models.pdb
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.BoundedContext\obj\Debug\netcoreapp3.1\FBRxweb.BoundedContext.csprojAssemblyReference.cache
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.BoundedContext\obj\Debug\netcoreapp3.1\FBRxweb.BoundedContext.AssemblyInfoInputs.cache
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.BoundedContext\obj\Debug\netcoreapp3.1\FBRxweb.BoundedContext.AssemblyInfo.cs
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.BoundedContext\obj\Debug\netcoreapp3.1\FBRxweb.BoundedContext.csproj.CopyComplete
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.BoundedContext\obj\Debug\netcoreapp3.1\FBRxweb.BoundedContext.dll
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.BoundedContext\obj\Debug\netcoreapp3.1\FBRxweb.BoundedContext.pdb

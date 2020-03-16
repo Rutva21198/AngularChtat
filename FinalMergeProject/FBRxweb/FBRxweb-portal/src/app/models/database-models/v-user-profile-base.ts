@@ -4,10 +4,10 @@ import { gridColumn } from "@rxweb/grid"
 
 export class vUserProfileBase {
 
-//#region userId Prop
-        @gridColumn({visible: true, columnIndex:0, allowSorting: true, headerKey: 'userId', keyColumn: true})
-        userId : number;
-//#endregion userId Prop
+//#region userID Prop
+        @gridColumn({visible: true, columnIndex:0, allowSorting: true, headerKey: 'userID', keyColumn: true})
+        userID : number;
+//#endregion userID Prop
 
 
 //#region firstName Prop
@@ -22,6 +22,12 @@ export class vUserProfileBase {
 //#endregion lastName Prop
 
 
+//#region bio Prop
+        @gridColumn({visible: true, columnIndex:5, allowSorting: true, headerKey: 'bio', keyColumn: false})
+        bio : string;
+//#endregion bio Prop
+
+
 //#region currentCity Prop
         @gridColumn({visible: true, columnIndex:3, allowSorting: true, headerKey: 'currentCity', keyColumn: false})
         currentCity : string;
@@ -34,10 +40,22 @@ export class vUserProfileBase {
 //#endregion homeTown Prop
 
 
-//#region bio Prop
-        @gridColumn({visible: true, columnIndex:5, allowSorting: true, headerKey: 'bio', keyColumn: false})
-        bio : string;
-//#endregion bio Prop
+//#region dateOfBirth Prop
+        @gridColumn({visible: true, columnIndex:6, allowSorting: true, headerKey: 'dateOfBirth', keyColumn: false})
+        dateOfBirth : any;
+//#endregion dateOfBirth Prop
+
+
+//#region mobileNo Prop
+        @gridColumn({visible: true, columnIndex:7, allowSorting: true, headerKey: 'mobileNo', keyColumn: false})
+        mobileNo : string;
+//#endregion mobileNo Prop
+
+
+//#region email Prop
+        @gridColumn({visible: true, columnIndex:8, allowSorting: true, headerKey: 'email', keyColumn: false})
+        email : string;
+//#endregion email Prop
 
 
 //#region relationship Prop

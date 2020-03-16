@@ -82,13 +82,6 @@ namespace FBRxweb.Models.Main
 
         public Status StatusId { get; set; }
 
-		#region ApplicationUserTokens Annotations
-
-        [InverseProperty("User")]
-		#endregion ApplicationUserTokens Annotations
-
-        public virtual ICollection<ApplicationUserToken> ApplicationUserTokens { get; set; }
-
 		#region UserRoles Annotations
 
         [InverseProperty("User")]
@@ -99,7 +92,6 @@ namespace FBRxweb.Models.Main
 
         public User()
         {
-			ApplicationUserTokens = new HashSet<ApplicationUserToken>();
 			UserRoles = new HashSet<UserRole>();
         }
 	}

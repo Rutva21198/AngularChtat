@@ -28,6 +28,11 @@ export class EducationDetailAddComponent extends AbstractEducationDetail impleme
     ngOnInit(): void {
         this.educationDetail = new EducationDetail();
         this.educationDetailFormGroup = this.formBuilder.formGroup(this.educationDetail) as IFormGroup<EducationDetail>;
+
+        this.subscription = this.get({params:[localStorage.getItem('userId')],queryParams:{UserId:localStorage.getItem('userId')}}).subscribe((t: List<EducationDetail>) => {
+            this.educationDetails = t;
+            console.log(localStorage.getItem('userId'));
+        })
      //   this.Get();
       //  this.Save();
     }
@@ -43,8 +48,8 @@ export class EducationDetailAddComponent extends AbstractEducationDetail impleme
     show=true;
     ADD()
     {
-this.show=false;
-this.hide=true;
+            this.show=false;
+            this.hide=true;
 
        // this.router.navigate(["/addEducation"])
     }
@@ -56,21 +61,27 @@ this.hide=true;
             city:this.educationDetailFormGroup.controls.city.value,
             courseStartDate:this.educationDetailFormGroup.controls.courseStartDate.value,
             courseEndDate:this.educationDetailFormGroup.controls.courseEndDate.value,
-            UserId:this.id,SchoolCollegeAO:9}}).subscribe(res=>{this.result=res;
+            UserId:localStorage.getItem('userId'),SchoolCollegeAO:9}}).subscribe(res=>{this.result=res;
            
         });
         console.log(this.result);
-        console.log(this.id);
+        console.log(localStorage.getItem('userId'));
+     
         this.router.navigate(["/education-details/add"]);
-    } 
-    GetBy(i:number)
-    {   
-        this.subscription = this.get({params:[i],queryParams:{UserId:this.id}}).subscribe((t: List<EducationDetail>) => {
-            this.educationDetails = t;
-            console.log(this.id);
-        })
-    }
 
+    } 
+   
+    Delete(educationId:any)
+    {
+           this.delete({params:[educationId],queryParams:{EducationId:educationId},body:{}}).subscribe(r=>{this.result=r});
+           console.log(this.result);
+    }
+    Edit(educationId:any)
+    {
+
+        this.router.navigate(["/education-details/edit"]);
+
+    }
     ngOnDestroy(): void {
         if (this.subscription)
             this.subscription.unsubscribe();

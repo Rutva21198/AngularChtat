@@ -1,5 +1,8 @@
 import {FacebookUserBase} from '../database-models/facebook-user-base';
 import {FBApplicationObjectBase} from '../database-models/f-b-application-object-base';
+import {EducationDetailBase} from '../database-models/education-detail-base';
+import {ApplicationUserTokenBase} from '../database-models/application-user-token-base';
+import {LogActivityBase} from '../database-models/log-activity-base';
 import {UserPostBase} from '../database-models/user-post-base';
 import {PostMediaBase} from '../database-models/post-media-base';
 import {PostMessageBase} from '../database-models/post-message-base';
@@ -9,13 +12,11 @@ import {ChatMessageBase} from '../database-models/chat-message-base';
 //import {ChatMessages1Base} from '../database-models/chat-messages-1-base';
 import {CoverPhotoBase} from '../database-models/cover-photo-base';
 import {PostLikeBase} from '../database-models/post-like-base';
-import {EducationDetailBase} from '../database-models/education-detail-base';
 import {PostCommentBase} from '../database-models/post-comment-base';
 import {PostShareBase} from '../database-models/post-share-base';
 import {ProfilePhotoBase} from '../database-models/profile-photo-base';
 import {FacebookUserDetailBase} from '../database-models/facebook-user-detail-base';
 import {FacebookUserWorkBase} from '../database-models/facebook-user-work-base';
-import {LogActivityBase} from '../database-models/log-activity-base';
 //Generated Imports
 export class FacebookUser extends FacebookUserBase 
 {
@@ -27,6 +28,15 @@ export class FacebookUser extends FacebookUserBase
 //#region fBApplicationObject Prop
 fBApplicationObject : FBApplicationObjectBase;
 //#endregion fBApplicationObject Prop
+//#region educationDetails Prop
+educationDetails : EducationDetailBase[];
+//#endregion educationDetails Prop
+//#region applicationUserTokens Prop
+applicationUserTokens : ApplicationUserTokenBase[];
+//#endregion applicationUserTokens Prop
+//#region logActivities Prop
+logActivities : LogActivityBase[];
+//#endregion logActivities Prop
 //#region userPosts Prop
 userPosts : UserPostBase[];
 //#endregion userPosts Prop
@@ -54,9 +64,6 @@ coverPhotos : CoverPhotoBase[];
 //#region postLikes Prop
 postLikes : PostLikeBase[];
 //#endregion postLikes Prop
-//#region educationDetails Prop
-educationDetails : EducationDetailBase[];
-//#endregion educationDetails Prop
 //#region postComments Prop
 postComments : PostCommentBase[];
 //#endregion postComments Prop
@@ -72,11 +79,15 @@ facebookUserDetails : FacebookUserDetailBase[];
 //#region facebookUserWorks Prop
 facebookUserWorks : FacebookUserWorkBase[];
 //#endregion facebookUserWorks Prop
-//#region logActivities Prop
-logActivities : LogActivityBase[];
-//#endregion logActivities Prop
 
 //#endregion Generated Reference Properties
+
+
+
+
+
+
+
 
 
 

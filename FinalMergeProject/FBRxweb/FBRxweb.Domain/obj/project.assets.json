@@ -6837,11 +6837,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\radix\\Desktop\\FinalMergeProject\\FBRxweb\\FBRxweb.Domain\\FBRxweb.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\radix\\Downloads\\FinalMergeProject\\FBRxweb\\FBRxweb.Domain\\FBRxweb.Domain.csproj",
       "projectName": "FBRxweb.Domain",
-      "projectPath": "C:\\Users\\radix\\Desktop\\FinalMergeProject\\FBRxweb\\FBRxweb.Domain\\FBRxweb.Domain.csproj",
+      "projectPath": "C:\\Users\\radix\\Downloads\\FinalMergeProject\\FBRxweb\\FBRxweb.Domain\\FBRxweb.Domain.csproj",
       "packagesPath": "C:\\Users\\radix\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\radix\\Desktop\\FinalMergeProject\\FBRxweb\\FBRxweb.Domain\\obj\\",
+      "outputPath": "C:\\Users\\radix\\Downloads\\FinalMergeProject\\FBRxweb\\FBRxweb.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\radix\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6857,17 +6857,17 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\radix\\Desktop\\FinalMergeProject\\FBRxweb\\FBRxweb.BoundedContext\\FBRxweb.BoundedContext.csproj": {
-              "projectPath": "C:\\Users\\radix\\Desktop\\FinalMergeProject\\FBRxweb\\FBRxweb.BoundedContext\\FBRxweb.BoundedContext.csproj"
+            "C:\\Users\\radix\\Downloads\\FinalMergeProject\\FBRxweb\\FBRxweb.BoundedContext\\FBRxweb.BoundedContext.csproj": {
+              "projectPath": "C:\\Users\\radix\\Downloads\\FinalMergeProject\\FBRxweb\\FBRxweb.BoundedContext\\FBRxweb.BoundedContext.csproj"
             },
-            "C:\\Users\\radix\\Desktop\\FinalMergeProject\\FBRxweb\\FBRxweb.Infrastructure\\FBRxweb.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\radix\\Desktop\\FinalMergeProject\\FBRxweb\\FBRxweb.Infrastructure\\FBRxweb.Infrastructure.csproj"
+            "C:\\Users\\radix\\Downloads\\FinalMergeProject\\FBRxweb\\FBRxweb.Infrastructure\\FBRxweb.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\radix\\Downloads\\FinalMergeProject\\FBRxweb\\FBRxweb.Infrastructure\\FBRxweb.Infrastructure.csproj"
             },
-            "C:\\Users\\radix\\Desktop\\FinalMergeProject\\FBRxweb\\FBRxweb.Models\\FBRxweb.Models.csproj": {
-              "projectPath": "C:\\Users\\radix\\Desktop\\FinalMergeProject\\FBRxweb\\FBRxweb.Models\\FBRxweb.Models.csproj"
+            "C:\\Users\\radix\\Downloads\\FinalMergeProject\\FBRxweb\\FBRxweb.Models\\FBRxweb.Models.csproj": {
+              "projectPath": "C:\\Users\\radix\\Downloads\\FinalMergeProject\\FBRxweb\\FBRxweb.Models\\FBRxweb.Models.csproj"
             },
-            "C:\\Users\\radix\\Desktop\\FinalMergeProject\\FBRxweb\\FBRxweb.UnitOfWork\\FBRxweb.UnitOfWork.csproj": {
-              "projectPath": "C:\\Users\\radix\\Desktop\\FinalMergeProject\\FBRxweb\\FBRxweb.UnitOfWork\\FBRxweb.UnitOfWork.csproj"
+            "C:\\Users\\radix\\Downloads\\FinalMergeProject\\FBRxweb\\FBRxweb.UnitOfWork\\FBRxweb.UnitOfWork.csproj": {
+              "projectPath": "C:\\Users\\radix\\Downloads\\FinalMergeProject\\FBRxweb\\FBRxweb.UnitOfWork\\FBRxweb.UnitOfWork.csproj"
             }
           }
         }

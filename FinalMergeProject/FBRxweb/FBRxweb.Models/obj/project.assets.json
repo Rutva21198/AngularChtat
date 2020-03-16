@@ -6209,11 +6209,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\radix\\Desktop\\FinalMergeProject\\FBRxweb\\FBRxweb.Models\\FBRxweb.Models.csproj",
+      "projectUniqueName": "C:\\Users\\radix\\Downloads\\FinalMergeProject\\FBRxweb\\FBRxweb.Models\\FBRxweb.Models.csproj",
       "projectName": "FBRxweb.Models",
-      "projectPath": "C:\\Users\\radix\\Desktop\\FinalMergeProject\\FBRxweb\\FBRxweb.Models\\FBRxweb.Models.csproj",
+      "projectPath": "C:\\Users\\radix\\Downloads\\FinalMergeProject\\FBRxweb\\FBRxweb.Models\\FBRxweb.Models.csproj",
       "packagesPath": "C:\\Users\\radix\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\radix\\Desktop\\FinalMergeProject\\FBRxweb\\FBRxweb.Models\\obj\\",
+      "outputPath": "C:\\Users\\radix\\Downloads\\FinalMergeProject\\FBRxweb\\FBRxweb.Models\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\radix\\AppData\\Roaming\\NuGet\\NuGet.Config",

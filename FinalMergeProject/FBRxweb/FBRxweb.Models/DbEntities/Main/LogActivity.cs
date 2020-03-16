@@ -36,6 +36,14 @@ namespace FBRxweb.Models.Main
 
         public int PostId { get; set; }
 
+		#region Activity Annotations
+
+        [Required]
+        [MaxLength(50)]
+		#endregion Activity Annotations
+
+        public string Activity { get; set; }
+
 		#region FacebookUser Annotations
 
         [ForeignKey(nameof(UserId))]

@@ -1,22 +1,27 @@
-<h1>FacebookUserWorks EDIT</h1>
 <div class="col-md-6 offset-md-3">
-    <form [formGroup]="facebookUserWorkFormGroup">
-<div class="form-group">
-    <label>Work Name</label>
-    <input type="text" formControlName="workName" class="form-control"  />
-</div>
-<div class="form-group">
-    <label>Work Description</label>
-    <input type="text" formControlName="workDescription" class="form-control"  />
-</div>
-<div class="form-group">
-    <label>Work Start Date</label>
-    <input type="date" formControlName="workStartDate" class="form-control"  />    
-</div>
-<div class="form-group">
-    <label>Work End Date</label>
-    <input type="date" formControlName="workEndDate" class="form-control"  />    
-</div> 
-<button (click)="Post()">Add </button>
+<form [formGroup]="facebookUserWorkFormGroup">
+    <div class="form-group">
+        <label>Work Name</label>
+        <input type="text" formControlName="workName" class="form-control"  />
+        <small class="form-text text-muted">eg. Position:Developer</small>
+        <small class="form-text text-danger" *ngIf="facebookUserWorkFormGroup.controls.workName.errors">{{facebookUserWorkFormGroup.controls.workName.errors.required.message}}<br/></small>
+    </div>
+    <div class="form-group">
+        <label>Work Description</label>
+        <input type="text" formControlName="workDescription" class="form-control"  />
+        <small class="form-text text-muted">eg. Company Name:Radixweb</small>
+        <small class="form-text text-danger" *ngIf="facebookUserWorkFormGroup.controls.workDescription.errors">{{facebookUserWorkFormGroup.controls.workDescription.errors.required.message}}<br/></small>
+    </div>
+    <div class="form-group">
+        <label>Work Start Date</label>
+        <input type="date" formControlName="workStartDate" class="form-control"  />    
+
+    </div>
+    <div class="form-group">
+        <label>Work End Date</label>
+        <input type="date" formControlName="workEndDate" class="form-control"  />    
+    </div> 
+    <button class="btn btn-success"  [disabled]="!facebookUserWorkFormGroup.valid" (click)="Edit()">Save Changes </button>
 </form> 
+
 </div>

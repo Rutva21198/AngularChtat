@@ -13,7 +13,9 @@ using FBRxweb.Domain.PostModule;
 using FBRxweb.Domain.FacebookChatModule;
 //  using FBRxweb.Domain.vUserProfileModule;
 using FBRxweb.Domain.UserProfileDetailModule;
-#endregion Namespace
+using FBRxweb.Domain.LogActivityModule;
+            #endregion Namespace
+
 
 
 
@@ -75,7 +77,12 @@ namespace FBRxweb.Api.Bootstrap
                        
                         serviceCollection.AddScoped<IUserProfileDetailContext, UserProfileDetailContext>();
             serviceCollection.AddScoped<IUserProfileDetailUow, UserProfileDetailUow>();
+                        serviceCollection.AddScoped<ILogActivityContext, LogActivityContext>();
+            serviceCollection.AddScoped<ILogActivityUow, LogActivityUow>();
+                
             #endregion ContextService
+
+
 
 
 
@@ -113,7 +120,17 @@ namespace FBRxweb.Api.Bootstrap
            // serviceCollection.AddScoped<IVUserProfileDomain, VUserProfileDomain>();
             
             serviceCollection.AddScoped<IvUserProfileDomain, vUserProfileDomain>();
+            
+            
+            
+            serviceCollection.AddScoped<IvLogActivityDomain, vLogActivityDomain>();
+            
+            serviceCollection.AddScoped<IvAllOtherUserDomain, vAllOtherUserDomain>();
             #endregion DomainService
+
+
+
+
 
 
 

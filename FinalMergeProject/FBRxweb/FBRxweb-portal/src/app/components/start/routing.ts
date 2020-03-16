@@ -10,12 +10,25 @@ import { EducationDetailAddComponent } from '../education-detail/education-detai
 import { vUserProfileAddComponent } from '../user-profile-detail/v-user-profiles/add/v-user-profile-add.component';
 import { FacebookUser } from '@app/models';
 import { FacebookUserAddComponent } from '../facebook-user/facebook-users/add/facebook-user-add.component';
+import { FacebookUserEditComponent } from '../facebook-user/facebook-users/edit/facebook-user-edit.component';
+import { LogActivityListComponent } from '../log-activity/log-activities/list/log-activity-list.component';
+import { LogActivityAddComponent } from '../log-activity/log-activities/add/log-activity-add.component';
+import { vAllOtherUserAddComponent } from '../facebook-chat/v-all-other-users/add/v-all-other-user-add.component';
 var routings = [
-     {
-         path: '', redirectTo: 'facebook-users/add', pathMatch: 'full',
-	 },
+    //  {
+    //      path: '', redirectTo: 'facebook-users/add', pathMatch: 'full',
+	//  },
 	 {
 		path: 'register', component:FacebookUserAddComponent
+	},
+	{
+		path: 'logActivity', component:LogActivityAddComponent
+	},
+	{
+		path: 'allUser', component:vAllOtherUserAddComponent
+	},		
+	{
+		path:"changePassword" , component:FacebookUserEditComponent
 	},
      {
         path: "login",
@@ -34,10 +47,10 @@ var routings = [
 			path:"OnlineUser",
 			component:vOnlineUserListAddComponent
 		},
-		{
-				path:'work' ,component:FacebookUserWorkAddComponent
+		// {
+		// 		path:'work' ,component:FacebookUserWorkAddComponent
 
-		},
+		// },
 		{
 			path:'editWork' ,component:FacebookUserWorkEditComponent
 
@@ -339,6 +352,58 @@ var routings = [
         {
 			path: "v-online-user-lists",
 			loadChildren: () => import("../view-online-user/v-online-user-lists/v-online-user-list.module").then(m => m.vOnlineUserListModule)
+		},
+        {
+			path: "log-activities",
+			loadChildren: () => import("../log-activity/log-activities/log-activity.module").then(m => m.LogActivityModule)
+		},
+        {
+			path: "log-activities",
+			loadChildren: () => import("../log-activity/log-activities/log-activity.module").then(m => m.LogActivityModule)
+		},
+        {
+			path: "log-activities",
+			loadChildren: () => import("../log-activity/log-activities/log-activity.module").then(m => m.LogActivityModule)
+		},
+        {
+			path: "v-log-activities",
+			loadChildren: () => import("../log-activity/v-log-activities/v-log-activity.module").then(m => m.vLogActivityModule)
+		},
+        {
+			path: "v-log-activities",
+			loadChildren: () => import("../log-activity/v-log-activities/v-log-activity.module").then(m => m.vLogActivityModule)
+		},
+        {
+			path: "v-log-activities",
+			loadChildren: () => import("../log-activity/v-log-activities/v-log-activity.module").then(m => m.vLogActivityModule)
+		},
+        {
+			path: "v-all-other-users",
+			loadChildren: () => import("../facebook-chat/v-all-other-users/v-all-other-user.module").then(m => m.vAllOtherUserModule)
+		},
+        {
+			path: "v-all-other-users",
+			loadChildren: () => import("../facebook-chat/v-all-other-users/v-all-other-user.module").then(m => m.vAllOtherUserModule)
+		},
+        {
+			path: "v-all-other-users",
+			loadChildren: () => import("../facebook-chat/v-all-other-users/v-all-other-user.module").then(m => m.vAllOtherUserModule)
+		},
+        {
+			path: "v-all-other-users",
+			loadChildren: () => import("../facebook-chat/v-all-other-users/v-all-other-user.module").then(m => m.vAllOtherUserModule)
+		},
+        {
+			path: "v-all-other-users",
+			loadChildren: () => import("../facebook-chat/v-all-other-users/v-all-other-user.module").then(m => m.vAllOtherUserModule)
+		},
+        {
+			path: "v-all-other-users",
+			loadChildren: () => import("../facebook-chat/v-all-other-users/v-all-other-user.module").then(m => m.vAllOtherUserModule)
+		},
+        {
+			path: "v-all-other-users",
+			loadChildren: () => import("../facebook-chat/v-all-other-users/v-all-other-user.module").then(m => m.vAllOtherUserModule)
 		},
 //generated code
 //])

@@ -7,7 +7,7 @@ import { vCheckLikeUserEditComponent } from './edit/v-check-like-user-edit.compo
 
 const ROUTES: Routes = [
     {
-        path: '',
+        path: ':id',
         component: vCheckLikeUserListComponent
     },
     {
@@ -15,7 +15,7 @@ const ROUTES: Routes = [
         component: vCheckLikeUserAddComponent
     },
     {
-        path: ':id',
+        path: '',
         component:  vCheckLikeUserEditComponent
     },
 ];

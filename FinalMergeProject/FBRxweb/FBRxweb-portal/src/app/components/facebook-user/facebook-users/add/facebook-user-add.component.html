@@ -12,11 +12,13 @@
     <div class="col-md-4 mb-3">
       <label >First Name</label>
       <input type="text" class="form-control is-invalid"   placeholder="Enter Name" required="required" formControlName="firstName">
+      <small class="form-text text-danger" *ngIf="facebookUserFormGroup.controls.firstName.errors">{{facebookUserFormGroup.controls.firstName.errors.required.message}}<br/></small>
      
     </div>
     <div class="col-md-4 mb-3">
       <label>Last Name</label>
       <input type="text" class="form-control"  placeholder="Enter Name" formControlName="lastName" required>
+      <small class="form-text text-danger" *ngIf="facebookUserFormGroup.controls.lastName.errors">{{facebookUserFormGroup.controls.lastName.errors.required.message}}<br/></small>
     </div>
     
   </div>
@@ -24,7 +26,9 @@
   <div class="form-row">
       <div class="col-md-8 mb-3">
         <label >Mobile No</label>
-        <input type="number" class="form-control"  placeholder="Enter Mobile Number" formControlName="mobileNo" required >
+        <input type="text" class="form-control"  placeholder="Enter Mobile Number" formControlName="mobileNo" required >
+        <small class="form-text text-danger" *ngIf="facebookUserFormGroup.controls.mobileNo.errors">{{facebookUserFormGroup.controls.mobileNo.errors.mask.message}}<br/></small>	
+
       </div>
       
     </div>
@@ -33,13 +37,16 @@
     <div class="col-md-8 mb-3">
       <label >Email</label>
       <input type="text" class="form-control"  placeholder="Enter Email Address" formControlName="email" required >
+      <small class="form-text text-danger" *ngIf="facebookUserFormGroup.controls.email.errors">{{facebookUserFormGroup.controls.email.errors.email.message}}<br/></small>	
     </div>
     
   </div>
      <div class="form-row">
     <div class="col-md-8 mb-3">
       <label >Password</label>
-      <input type="password" class="form-control"  placeholder="Enter Password" required formControlName="password">
+      <input type="password" class="form-control"  placeholder="Enter Password" required formControlName="password" >
+      <small class="form-text text-danger" *ngIf="facebookUserFormGroup.controls.password.errors">{{facebookUserFormGroup.controls.password.errors.password.message}}<br/></small>
+      <!-- <small class="form-text text-danger" *ngIf="facebookUserFormGroup.controls.password.errors">{{facebookUserFormGroup.controls.password.errors.password.message}}<br/></small>	 -->
     </div>
 
   </div>
@@ -69,7 +76,11 @@
     </div>
     <br>
  
-  <button class="btn btn-success" (click)="submit()" >Sign Up</button>
+  <button class="btn btn-success" [disabled]="!facebookUserFormGroup.valid" (click)="submit()" >Sign Up</button>
+
+  <div id="register-link" class="text-center">
+    <a href="#" class="text-info"[routerLink]="['/login']">Already have an account? </a>
+</div>
 </form>
   </div>
   </div>

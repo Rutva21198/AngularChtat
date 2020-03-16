@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
 import { password } from '@rxweb/reactive-form-validators';
 import { http } from '@rxweb/http';
 import {ActivatedRoute,Router} from '@angular/router';
+import { BrowserStorage } from 'src/app/domain/services/browser-storage';
 
 //import { LoggedInMiddleware } from '../../domain/security/middleware/logged-in.middleware';
 
@@ -29,7 +30,7 @@ export class LoginComponent extends CoreComponent implements OnInit {
     facebookUser:FacebookUser;
     subscription: Subscription;
     
-    constructor(private formBuilder: FormBuilder, private router:Router) {
+    constructor(private browserStorage: BrowserStorage,private formBuilder: FormBuilder, private router:Router) {
         super();
     }
     ngOnInit(): void {
@@ -47,16 +48,28 @@ export class LoginComponent extends CoreComponent implements OnInit {
         this.get({ params:[1], queryParams:{Email:this.facebookLoginFormGroup.controls.MobileNoEmail.value,
             Password:this.facebookLoginFormGroup.controls.password.value}}).subscribe(res => {
                 this.result = res;
-                sessionStorage.setItem('userData',JSON.stringify(res));
-            console.log(this.result);
-            console.log(JSON.parse(sessionStorage.getItem('userData')).userID);
+               // this.browserStorage.local.save('auth', res);
+           // console.log(this.result.userID);
+         //   console.log(JSON.parse(sessionStorage.getItem('userData')).userID);
             
             if(this.result != 0){
+                localStorage.setItem('auth', this.result.token);
+                localStorage.setItem('userId', this.result.userID);
+                this.browserStorage.session.save('userData',this.result);
                 console.log("suces");
-                 var fbid=this.result.UserId;
-                 console.log(fbid);
-                 this.router.navigate(['/v-all-posts']); 
+                console.log(JSON.parse(sessionStorage.getItem('userData')).userID);
+                console.log( localStorage.getItem('auth'));
+                console.log( localStorage.getItem('userId'));
+                console.log("sucesadfgajs");
+                this.router.navigate(['/v-all-posts']); 
+                //  var fbid=this.browserStorage.local.save('userId', res.userID);
+                //  console.log(fbid);
+              
+                //  this.router.navigate(['/v-all-posts']); 
                  this.display=true;              
+            }
+            else{
+                alert("Password or MobileNo/Email not Currect...")
             }
             // elseif(this.result=='suuccess with email'){
 

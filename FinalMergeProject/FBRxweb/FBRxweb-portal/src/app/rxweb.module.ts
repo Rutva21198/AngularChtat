@@ -14,7 +14,7 @@ import { AuthResolver } from './domain/security/authentication-resolver';
     authorization: AuthorizationResolver,
     middlewares: [GlobalMultilingualContentResolver, ComponentMultilingualContentResolver],
     //childMultilingualResolver: ComponentMultilingualContentResolver,
-    urlEncryption:true
+    // urlEncryption:true
 })
 @NgModule({
     declarations: [

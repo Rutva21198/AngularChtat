@@ -1,4 +1,4 @@
-import { prop,propObject,propArray,required,maxLength,range  } from "@rxweb/reactive-form-validators"
+import { prop,propObject,propArray,required,maxLength,range ,mask,email,password } from "@rxweb/reactive-form-validators"
 import { gridColumn } from "@rxweb/grid"
 
 
@@ -27,6 +27,7 @@ export class FacebookUserBase {
 //#region mobileNo Prop
         @required()
         @maxLength({value:50})
+        @mask({mask:'9999999999' })
         mobileNo : string;
 //#endregion mobileNo Prop
 
@@ -34,13 +35,15 @@ export class FacebookUserBase {
 //#region email Prop
         @required()
         @maxLength({value:50})
+        @email()
         email : string;
 //#endregion email Prop
 
 
 //#region password Prop
         @required()
-        @maxLength({value:200})
+        @maxLength({value:132})
+        @password({validation:{maxLength: 20,minLength: 8,digit: true,specialCharacter: true} })
         password : any;
 //#endregion password Prop
 
@@ -74,6 +77,8 @@ export class FacebookUserBase {
         @maxLength({value:140})
         salt : any;
 //#endregion salt Prop
+
+
 
 
 

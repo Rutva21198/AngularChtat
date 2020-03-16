@@ -18,32 +18,17 @@ export class FacebookUserEditComponent extends AbstractFacebookUser implements O
 
     constructor(private formBuilder: RxFormBuilder, private activatedRoute: ActivatedRoute,private router:Router ) {
         super();
-        this.activatedRoute.queryParams.subscribe(t => {
-            this.id = t['id'];
-        })
+        // this.activatedRoute.queryParams.subscribe(t => {
+        //     this.id = t['id'];
+        // })
     }
 
     ngOnInit(): void {
-        this.get({ params: [this.id] }).subscribe(t => {
-            this.facebookUserFormGroup = this.formBuilder.formGroup(FacebookUser,t) as IFormGroup<FacebookUser>;
-        })
+        // this.get({ params: [this.id] }).subscribe(t => {
+        //     this.facebookUserFormGroup = this.formBuilder.formGroup(FacebookUser,t) as IFormGroup<FacebookUser>;
+        // })
     }
-    work()
-    {
-     // this.password=true;
-  
-        this.router.navigate(["/work"]);
-  
-    }
-    profile()
-    {
-        this.router.navigate(["/vUserProfile"]);
-    }
-    education()
-    {
-     // this.password=true;
-        this.router.navigate(["/education-details/add"]);
-    }
+   
     ngOnDestroy(): void {
         if (this.subscription)
             this.subscription.unsubscribe();

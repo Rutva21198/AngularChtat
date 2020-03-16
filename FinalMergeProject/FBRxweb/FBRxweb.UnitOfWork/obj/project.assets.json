@@ -6376,11 +6376,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\radix\\Desktop\\FinalMergeProject\\FBRxweb\\FBRxweb.UnitOfWork\\FBRxweb.UnitOfWork.csproj",
+      "projectUniqueName": "C:\\Users\\radix\\Downloads\\FinalMergeProject\\FBRxweb\\FBRxweb.UnitOfWork\\FBRxweb.UnitOfWork.csproj",
       "projectName": "FBRxweb.UnitOfWork",
-      "projectPath": "C:\\Users\\radix\\Desktop\\FinalMergeProject\\FBRxweb\\FBRxweb.UnitOfWork\\FBRxweb.UnitOfWork.csproj",
+      "projectPath": "C:\\Users\\radix\\Downloads\\FinalMergeProject\\FBRxweb\\FBRxweb.UnitOfWork\\FBRxweb.UnitOfWork.csproj",
       "packagesPath": "C:\\Users\\radix\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\radix\\Desktop\\FinalMergeProject\\FBRxweb\\FBRxweb.UnitOfWork\\obj\\",
+      "outputPath": "C:\\Users\\radix\\Downloads\\FinalMergeProject\\FBRxweb\\FBRxweb.UnitOfWork\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\radix\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6396,8 +6396,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\radix\\Desktop\\FinalMergeProject\\FBRxweb\\FBRxweb.BoundedContext\\FBRxweb.BoundedContext.csproj": {
-              "projectPath": "C:\\Users\\radix\\Desktop\\FinalMergeProject\\FBRxweb\\FBRxweb.BoundedContext\\FBRxweb.BoundedContext.csproj"
+            "C:\\Users\\radix\\Downloads\\FinalMergeProject\\FBRxweb\\FBRxweb.BoundedContext\\FBRxweb.BoundedContext.csproj": {
+              "projectPath": "C:\\Users\\radix\\Downloads\\FinalMergeProject\\FBRxweb\\FBRxweb.BoundedContext\\FBRxweb.BoundedContext.csproj"
             }
           }
         }

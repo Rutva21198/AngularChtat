@@ -6,7 +6,8 @@
 </div> -->
 
 
-<section>
+<section *ngIf="display">
+  {{display}}
     <div class="container" style="margin-left: 500px;">
       
       <button (click)="createPost()" style="font-size: 20px;">Create Post</button>

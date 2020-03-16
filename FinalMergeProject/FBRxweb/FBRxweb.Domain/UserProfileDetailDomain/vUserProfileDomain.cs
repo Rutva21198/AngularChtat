@@ -9,7 +9,8 @@ namespace FBRxweb.Domain.UserProfileDetailModule
 {
     public class vUserProfileDomain : IvUserProfileDomain
     {
-        public vUserProfileDomain(IUserProfileDetailUow uow) {
+        public vUserProfileDomain(IUserProfileDetailUow uow)
+        {
             this.Uow = uow;
         }
 
@@ -22,10 +23,10 @@ namespace FBRxweb.Domain.UserProfileDetailModule
         public async Task<object> GetBy(vUserProfile parameters)
         {
             // throw new NotImplementedException();
-            return await Uow.Repository<vUserProfile>().SingleOrDefaultAsync(t=> t.UserId == parameters.UserId);
+            return await Uow.Repository<vUserProfile>().SingleOrDefaultAsync(t => t.UserID == parameters.UserID);
         }
-        
-//
+
+        //
         public HashSet<string> AddValidation(vUserProfile entity)
         {
             return ValidationMessages;

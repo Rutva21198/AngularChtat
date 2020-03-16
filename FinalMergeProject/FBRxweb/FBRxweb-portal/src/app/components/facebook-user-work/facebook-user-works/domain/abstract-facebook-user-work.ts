@@ -6,7 +6,7 @@ import { anonymous } from '@rxweb/angular-router';
 
 @anonymous()
 @http({
-    hostKey: "local",
+    hostKey: "server",
     path: "api/FacebookUserWorks"
 })
 export class AbstractFacebookUserWork extends RxHttp {

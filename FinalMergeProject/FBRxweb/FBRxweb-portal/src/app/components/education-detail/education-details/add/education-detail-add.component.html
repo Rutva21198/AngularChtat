@@ -4,28 +4,37 @@
     <div class="form-group">
         <label>Course Name</label>
         <input type="text" formControlName="courseName" class="form-control"  />
+    
+        <small class="form-text text-danger" *ngIf="educationDetailFormGroup.controls.courseName.errors">{{educationDetailFormGroup.controls.courseName.errors.required.message}}<br/></small>
     </div>
     <div class="form-group">
         <label>CollegeSchool Name</label>
         <input type="text" formControlName="collegeSchoolName" class="form-control"  />
+       
+        <small class="form-text text-danger" *ngIf="educationDetailFormGroup.controls.collegeSchoolName.errors">{{educationDetailFormGroup.controls.collegeSchoolName.errors.required.message}}<br/></small>
     </div>
     <div class="form-group">
         <label>UniversityBoard Name</label>
-        <input type="text" formControlName="universityBoardName" class="form-control"  />    
+        <input type="text" formControlName="universityBoardName" class="form-control"  /> 
+    
+        <small class="form-text text-danger" *ngIf="educationDetailFormGroup.controls.universityBoardName.errors">{{educationDetailFormGroup.controls.universityBoardName.errors.required.message}}<br/></small>
+
     </div>
     <div class="form-group">
         <label>City</label>
         <input type="text" formControlName="city" class="form-control"  />    
+        <small class="form-text text-danger" *ngIf="educationDetailFormGroup.controls.city.errors">{{educationDetailFormGroup.controls.city.errors.required.message}}<br/></small>
     </div>
     <div class="form-group">
         <label>Course Start Date</label>
         <input type="date" formControlName="courseStartDate" class="form-control"  />    
+
     </div>
     <div class="form-group">
         <label>Course End Date</label>
         <input type="date" formControlName="courseEndDate" class="form-control"  />    
     </div>
-    <button  class="btn btn-primary" (click)="Save()">Save</button>
+    <button  class="btn btn-primary"   (click)="Save()">Save</button>
     
     </form> 
 </div> 
@@ -48,22 +57,33 @@
 </div> -->
                 <div [hidden]="hide">
                     <h3>Education Detail</h3>
-               <input type="text" [(ngModel)]="id" (keyup)="GetBy(id)"> 
+               <!-- <input type="text" [(ngModel)]="id" (keyup)="GetBy(id)">  -->
                             <table >
                                 <!-- <tr><th>Course </th>
                                 <th>College</th>
                                 <th>City</th>
                                 </tr> -->
+
+                                <thead>
+             
+                                        <th scope="col">Course</th>
+                                        <th scope="col">UniversityBoardName</th>
+                                        <th scope="col">City</th>
+                                      
+                                    </thead>
+
                                 <tbody *ngFor="let r of educationDetails;">
                                     <tr>
-                                        <td><b>Studied</b>   {{r.courseName}}</td>
-                                        <td><b>At</b>   {{r.collegeSchoolName}}</td>         
-                                        <td>  ,{{r.city}}</td>
-                                        
+                                        <td>{{r.courseName}}</td>
+                                        <td>  {{r.collegeSchoolName}}</td>         
+                                        <td>  {{r.city}}</td>
+                                        <td> <button (click)="Edit(r.educationId)"> <i class="fa fa-pencil" aria-hidden="true"></i></button></td>  
+                                 
+                                        <td><button (click)="Delete(r.educationId)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
                                     </tr>
                                     
                                 </tbody>
                             </table>   
-                            <button (click)="ADD()">Add Education</button>          
+                            <button class="btn btn-success" (click)="ADD()">Add Education</button>          
                 </div>
                

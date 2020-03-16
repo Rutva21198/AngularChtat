@@ -32,15 +32,16 @@ namespace FBRxweb.Api.Controllers
         [AllowRequest(MaxRequestCountPerIp = 100)]
         public async Task<IActionResult> Get()
         {
-            var token = await ApplicationTokenProvider.GetTokenAsync(new vUser { UserId = 0, ApplicationTimeZoneName = string.Empty, LanguageCode = string.Empty });
+            var token = await ApplicationTokenProvider.GetTokenAsync(new FacebookUser { UserID = 0});
             return Ok(token);
         }
 
         [HttpPost]
-        [AllowAnonymousUser]
+        //[AllowAnonymousUser]
+        [AllowAnonymous]
         public async Task<IActionResult> Post(AuthenticationModel authentication)
         {
-            var user = await LoginUow.Repository<vUser>().SingleOrDefaultAsync(t => t.UserName == authentication.UserName && !t.LoginBlocked);
+            var user = await LoginUow.Repository<FacebookUser>().SingleOrDefaultAsync(t => t.MobileNo == authentication.UserName);
             if (user != null && PasswordHash.VerifySignature(authentication.Password, user.Password, user.Salt))
             {
                 var token = await ApplicationTokenProvider.GetTokenAsync(user);

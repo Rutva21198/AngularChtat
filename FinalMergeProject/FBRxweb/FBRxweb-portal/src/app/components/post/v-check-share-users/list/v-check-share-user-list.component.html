@@ -1,1 +1,9 @@
-<h1>vCheckShareUsers LIST</h1>
+
+<!-- <button (click)="show()">show likes</button> -->
+<h1>TotalShares of Post ID: {{id}}</h1>
+<ul *ngFor="let u of result,let i=index"> 
+    <li>User:{{i+1}}</li>
+    <li>Name:{{u.userName}}</li>
+   
+   
+</ul>

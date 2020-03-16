@@ -29,4 +29,11 @@ educationDetails : EducationDetailBase[];
 
 
 
+
+
+
+
+
+
+
 }

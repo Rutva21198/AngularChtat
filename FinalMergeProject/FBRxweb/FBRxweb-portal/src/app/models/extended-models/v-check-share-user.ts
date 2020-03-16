@@ -13,4 +13,11 @@ export class vCheckShareUser extends vCheckShareUserBase
 
 
 
+
+
+
+
+
+
+
 }

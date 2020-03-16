@@ -18,7 +18,7 @@
     .profilephoto
     {
       position: absolute;
-      top: 290px;
+      top: 260px;
       left: 410px;
       height: 40%;
       width: 50%;
@@ -35,7 +35,7 @@ left: 100px;;
     .intro
       {
         background-color: white;
-        border-style: groove;
+       
         width:35%; 
         height: 100%;
       }
@@ -58,23 +58,14 @@ left: 100px;;
                     <img src="https://image.shutterstock.com/image-photo/colorful-flower-on-dark-tropical-260nw-721703848.jpg" class="rounded-circle" style="height:200px" >
 
                     <div class="profilephoto1">
-                      <input type="file">
+                      <!-- <input type="file"> -->
                     </div>
                 </div>
 
         <div class="intro">
           <h3>Intro</h3>
             <table >
-              <!-- <h3>Details</h3> -->
-              <!-- <tr>
-                    <th>currentCity</th>
-                    <th>Home Town</th>   
-              </tr>     -->
-                           <!-- <tr >
-                              <b> <td>{{result.firstName}}</td> </b> 
-                                                      
-                              <b> <td>{{result.lastName}}</td>   </b>  &nbsp;&nbsp;
-                           </tr> -->
+             
                            <tr>      
                             <td> <b>Bio</b>&nbsp;{{result.bio}}</td>
                           </tr>
@@ -87,8 +78,11 @@ left: 100px;;
                     <tr>
                       <td><b>Relationship</b>&nbsp;{{result.relationship}}</td>
                     </tr>
-
+                   
             </table>
+            <button type="button" class=" btn btn-light" (click)="work()">Work Details</button>
+  
+            <button class=" btn btn-light"  (click)="education()">Education Detail</button>
          </div>
         </div>
         <!-- {{result|json}} -->

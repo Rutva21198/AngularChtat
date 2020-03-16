@@ -76,3 +76,16 @@ C:\Users\radix\Desktop\FinalMergeProject\FBRxweb\FBRxweb.UnitOfWork\obj\Debug\ne
 C:\Users\radix\Desktop\FinalMergeProject\FBRxweb\FBRxweb.UnitOfWork\obj\Debug\netcoreapp3.1\FBRxweb.UnitOfWork.csproj.CopyComplete
 C:\Users\radix\Desktop\FinalMergeProject\FBRxweb\FBRxweb.UnitOfWork\obj\Debug\netcoreapp3.1\FBRxweb.UnitOfWork.dll
 C:\Users\radix\Desktop\FinalMergeProject\FBRxweb\FBRxweb.UnitOfWork\obj\Debug\netcoreapp3.1\FBRxweb.UnitOfWork.pdb
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.UnitOfWork\bin\Debug\netcoreapp3.1\FBRxweb.UnitOfWork.deps.json
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.UnitOfWork\bin\Debug\netcoreapp3.1\FBRxweb.UnitOfWork.dll
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.UnitOfWork\bin\Debug\netcoreapp3.1\FBRxweb.UnitOfWork.pdb
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.UnitOfWork\bin\Debug\netcoreapp3.1\FBRxweb.BoundedContext.dll
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.UnitOfWork\bin\Debug\netcoreapp3.1\FBRxweb.Models.dll
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.UnitOfWork\bin\Debug\netcoreapp3.1\FBRxweb.BoundedContext.pdb
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.UnitOfWork\bin\Debug\netcoreapp3.1\FBRxweb.Models.pdb
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.UnitOfWork\obj\Debug\netcoreapp3.1\FBRxweb.UnitOfWork.csprojAssemblyReference.cache
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.UnitOfWork\obj\Debug\netcoreapp3.1\FBRxweb.UnitOfWork.AssemblyInfoInputs.cache
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.UnitOfWork\obj\Debug\netcoreapp3.1\FBRxweb.UnitOfWork.AssemblyInfo.cs
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.UnitOfWork\obj\Debug\netcoreapp3.1\FBRxweb.UnitOfWork.csproj.CopyComplete
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.UnitOfWork\obj\Debug\netcoreapp3.1\FBRxweb.UnitOfWork.dll
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.UnitOfWork\obj\Debug\netcoreapp3.1\FBRxweb.UnitOfWork.pdb

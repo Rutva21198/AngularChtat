@@ -104,6 +104,27 @@ namespace FBRxweb.Models.Main
 
         public virtual FBApplicationObject FBApplicationObject { get; set; }
 
+		#region EducationDetails Annotations
+
+        [InverseProperty("FacebookUser")]
+		#endregion EducationDetails Annotations
+
+        public virtual ICollection<EducationDetail> EducationDetails { get; set; }
+
+		#region ApplicationUserTokens Annotations
+
+        [InverseProperty("FacebookUser")]
+		#endregion ApplicationUserTokens Annotations
+
+        public virtual ICollection<ApplicationUserToken> ApplicationUserTokens { get; set; }
+
+		#region LogActivities Annotations
+
+        [InverseProperty("FacebookUser")]
+		#endregion LogActivities Annotations
+
+        public virtual ICollection<LogActivity> LogActivities { get; set; }
+
 		#region UserPosts Annotations
 
         [InverseProperty("FacebookUser")]
@@ -167,13 +188,6 @@ namespace FBRxweb.Models.Main
 
         public virtual ICollection<PostLike> PostLikes { get; set; }
 
-		#region EducationDetails Annotations
-
-        [InverseProperty("FacebookUser")]
-		#endregion EducationDetails Annotations
-
-        public virtual ICollection<EducationDetail> EducationDetails { get; set; }
-
 		#region PostComments Annotations
 
         [InverseProperty("FacebookUser")]
@@ -209,16 +223,12 @@ namespace FBRxweb.Models.Main
 
         public virtual ICollection<FacebookUserWork> FacebookUserWorks { get; set; }
 
-		#region LogActivities Annotations
-
-        [InverseProperty("FacebookUser")]
-		#endregion LogActivities Annotations
-
-        public virtual ICollection<LogActivity> LogActivities { get; set; }
-
 
         public FacebookUser()
         {
+			EducationDetails = new HashSet<EducationDetail>();
+			ApplicationUserTokens = new HashSet<ApplicationUserToken>();
+			LogActivities = new HashSet<LogActivity>();
 			UserPosts = new HashSet<UserPost>();
 			PostMedias = new HashSet<PostMedia>();
 			PostMessages = new HashSet<PostMessage>();
@@ -228,13 +238,11 @@ namespace FBRxweb.Models.Main
 			ChatMessages1 = new HashSet<ChatMessage>();
 			CoverPhotos = new HashSet<CoverPhoto>();
 			PostLikes = new HashSet<PostLike>();
-			EducationDetails = new HashSet<EducationDetail>();
 			PostComments = new HashSet<PostComment>();
 			PostShares = new HashSet<PostShare>();
 			ProfilePhotos = new HashSet<ProfilePhoto>();
 			FacebookUserDetails = new HashSet<FacebookUserDetail>();
 			FacebookUserWorks = new HashSet<FacebookUserWork>();
-			LogActivities = new HashSet<LogActivity>();
         }
 	}
 }

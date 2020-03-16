@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   constructor(private formBuilder:FormBuilder,private router:Router){}
 
 
-  ngOnInit(){
+ ngOnInit(){
     this.fbFormGroup=this.formBuilder.group(
       {
         firstName:['',Validators.required],

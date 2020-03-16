@@ -46,3 +46,11 @@ C:\Users\radix\Desktop\FinalMergeProject\FBRxweb\FBRxweb.Models\obj\Debug\netcor
 C:\Users\radix\Desktop\FinalMergeProject\FBRxweb\FBRxweb.Models\bin\Debug\netcoreapp3.1\FBRxweb.Models.deps.json
 C:\Users\radix\Desktop\FinalMergeProject\FBRxweb\FBRxweb.Models\bin\Debug\netcoreapp3.1\FBRxweb.Models.dll
 C:\Users\radix\Desktop\FinalMergeProject\FBRxweb\FBRxweb.Models\bin\Debug\netcoreapp3.1\FBRxweb.Models.pdb
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.Models\bin\Debug\netcoreapp3.1\FBRxweb.Models.deps.json
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.Models\bin\Debug\netcoreapp3.1\FBRxweb.Models.dll
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.Models\bin\Debug\netcoreapp3.1\FBRxweb.Models.pdb
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.Models\obj\Debug\netcoreapp3.1\FBRxweb.Models.csprojAssemblyReference.cache
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.Models\obj\Debug\netcoreapp3.1\FBRxweb.Models.AssemblyInfoInputs.cache
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.Models\obj\Debug\netcoreapp3.1\FBRxweb.Models.AssemblyInfo.cs
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.Models\obj\Debug\netcoreapp3.1\FBRxweb.Models.dll
+C:\Users\radix\Downloads\FinalMergeProject\FBRxweb\FBRxweb.Models\obj\Debug\netcoreapp3.1\FBRxweb.Models.pdb

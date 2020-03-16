@@ -36,8 +36,7 @@ export class EducationDetailBase {
 
 
 //#region schoolCollegeAO Prop
-        @range({minimumNumber:1,maximumNumber:2147483647})
-        @required()
+        @prop()
         schoolCollegeAO : number;
 //#endregion schoolCollegeAO Prop
 

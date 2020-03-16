@@ -61,7 +61,7 @@ export class FacebookUserAddComponent extends AbstractFacebookUser implements On
         //     // this.router.navigate(["/user"]);
         //      }
 
-          console.log(this.facebookUserFormGroup.value);
+        console.log(this.facebookUserFormGroup.value);
         console.log()
         } 
 

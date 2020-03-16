@@ -7,7 +7,7 @@ import { vCheckCommentUserEditComponent } from './edit/v-check-comment-user-edit
 
 const ROUTES: Routes = [
     {
-        path: '',
+        path: ':id',
         component: vCheckCommentUserListComponent
     },
     {
@@ -15,7 +15,7 @@ const ROUTES: Routes = [
         component: vCheckCommentUserAddComponent
     },
     {
-        path: ':id',
+        path: '',
         component:  vCheckCommentUserEditComponent
     },
 ];

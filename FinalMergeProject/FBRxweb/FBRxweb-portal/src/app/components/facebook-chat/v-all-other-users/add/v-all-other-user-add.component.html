@@ -1,0 +1,18 @@
+
+<body>
+    <div class="container">
+    <h3 class=" text-center">All Facebook User</h3>
+    <div class="messaging">
+         
+              </div>
+              <div class="inbox_chat">
+                <div class="chat_list active_chat">
+                  <div class="chat_people">
+                    
+                    <div class="chat_ib" *ngFor="let p of result">
+                      <button  [routerLink]="['/Chat',p.userId]" >{{p.firstName}}{{p.latName}} </button>
+                    </div>
+                  </div>
+                </div>
+        </div></div>
+        </body>

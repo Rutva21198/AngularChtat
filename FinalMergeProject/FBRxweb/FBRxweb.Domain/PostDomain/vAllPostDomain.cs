@@ -22,7 +22,7 @@ namespace FBRxweb.Domain.PostModule
         public async Task<object> GetBy(vAllPost parameters)
         {
             // throw new NotImplementedException();
-            return await Uow.Repository<vAllPost>().SingleOrDefaultAsync(t=> t.PostId == parameters.PostId);
+            return await Uow.Repository<vAllPost>().FindByAsync(t=> t.UserId == parameters.UserId);
         }
         
 

@@ -7,7 +7,7 @@ import { vCheckShareUserEditComponent } from './edit/v-check-share-user-edit.com
 
 const ROUTES: Routes = [
     {
-        path: '',
+        path: ':id',
         component: vCheckShareUserListComponent
     },
     {
@@ -15,7 +15,7 @@ const ROUTES: Routes = [
         component: vCheckShareUserAddComponent
     },
     {
-        path: ':id',
+        path: '',
         component:  vCheckShareUserEditComponent
     },
 ];

@@ -71,40 +71,59 @@ export class vAllPostAddComponent extends AbstractvAllPost implements OnInit, On
         // })
     }
     sendMessage(){
-             this.post({path:"api/PostMessages",body:{Message:this.postMessageFormGroup.controls.message.value ,UserId:JSON.parse(sessionStorage.getItem('userData')).userID}}).subscribe(res =>{
-                 this.result=res;
-                  sessionStorage.setItem('userData',JSON.stringify(res));
-            console.log(this.result);
-            console.log(JSON.parse(sessionStorage.getItem('userData')).userID);
-
-                 console.log(this.result);
-             })
-    }
-    sendMedia(){
-        this.post({path:"api/PostMedias",body:{Media:this.postMediaFormGroup.controls.media.value,UserId:JSON.parse(sessionStorage.getItem('userData')).userID}}).subscribe(res =>{
+        this.post({path:"api/PostMessages",body:{Message:this.postMessageFormGroup.controls.message.value ,UserId:localStorage.getItem('userId')}}).subscribe(res =>{
             this.result=res;
-            console.log(this.result);               
+             sessionStorage.setItem('userData',JSON.stringify(res));
+       console.log(this.result);
+       alert("Post Uploaded Successfully...");
+       this.postMessageFormGroup.controls.message.setValue('');
+            console.log(this.result);
         })
-    }
+}
+sendMedia(){
+
+   let m=this.postMediaFormGroup.controls.media.value;
+   m=m.split(".")
+   console.log(m)
+   let temp=0;
+  
+   
+       if(m[1] === "jpeg" || m[1]==="png" || m[1]==="jpg" || m[1]==="mp4"){
+           this.post({path:"api/PostMedias",body:{Media:this.postMediaFormGroup.controls.media.value,UserId:localStorage.getItem('userId')}}).subscribe(res =>{
+               this.result=res;
+               console.log(this.result);    
+                      
+           })
+           temp=1;     
+       }
+   if(temp==0)
+   {
+       alert("Please Select file type .jpeg / .png / .jpg / .mp4");
+   }
+   else{
+       alert("Post Uploaded Successfully...");
+   }
+  
+}
     show(){
-            this.get({params:[1], queryParams:{UserId:JSON.parse(sessionStorage.getItem('userData')).userID}}).subscribe(  res=>{
-                this.result=res;})
-                console.log(this.result);
-           
-            }
+            this.get({params:[1], queryParams:{UserId:localStorage.getItem('userId')}}).subscribe(  res=>{
+                this.result=res; console.log(this.result);
+            })
+                
+     }
             likeButton(postId:any){
-                this.post({path:"api/PostLikes",body:{UserId:JSON.parse(sessionStorage.getItem('userData')).userID,PostId:postId}}).subscribe(res =>{
+                this.post({path:"api/PostLikes",body:{UserId:localStorage.getItem('userId'),PostId:postId}}).subscribe(res =>{
                      this.result=res;
                      console.log(this.result);
                 })
             }
             commentButton(postId:any){
-                this.post({path:"api/PostComments",body:{Comment:this.createComment.controls.comment.value,UserId:JSON.parse(sessionStorage.getItem('userData')).userID,PostId:postId}}).subscribe(res =>{
+                this.post({path:"api/PostComments",body:{Comment:this.createComment.controls.comment.value,UserId:localStorage.getItem('userId'),PostId:postId}}).subscribe(res =>{
                     this.result=res;
                     console.log(this.result);
             } ) }
             shareButton(postId:any){
-                this.post({path:"api/PostShares",body:{UserId:JSON.parse(sessionStorage.getItem('userData')).userID,PostId:postId}}).subscribe(res =>{
+                this.post({path:"api/PostShares",body:{UserId:localStorage.getItem('userId'),PostId:postId}}).subscribe(res =>{
                     this.result=res;
                     console.log(this.result);
                 } ) }

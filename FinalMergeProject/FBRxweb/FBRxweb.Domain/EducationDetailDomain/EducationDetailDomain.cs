@@ -53,9 +53,12 @@ namespace FBRxweb.Domain.EducationDetailModule
             return ValidationMessages;
         }
 
-        public Task DeleteAsync(EducationDetail parameters)
+        public async Task DeleteAsync(EducationDetail parameters)
         {
-            throw new NotImplementedException();
+            //  throw new NotImplementedException();
+            var del = await Uow.Repository<EducationDetail>().FindByAsync(r => r.EducationId == parameters.EducationId);
+            await Uow.RegisterDeletedAsync(del);
+            await Uow.CommitAsync();
         }
 
         public IEducationDetailUow Uow { get; set; }

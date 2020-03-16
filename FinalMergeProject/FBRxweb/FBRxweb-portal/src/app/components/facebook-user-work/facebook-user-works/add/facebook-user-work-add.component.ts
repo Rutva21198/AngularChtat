@@ -1,11 +1,12 @@
 import { Component, OnInit, OnDestroy } from "@angular/core"
 import { Subscription } from 'rxjs';
 import{Router} from '@angular/router';
-import { RxFormBuilder, IFormGroup } from '@rxweb/reactive-form-validators';
+import { RxFormBuilder, IFormGroup, RxwebValidators } from '@rxweb/reactive-form-validators';
 
 import { FacebookUserWork } from '@app/models';
 import { AbstractFacebookUserWork } from '../domain/abstract-facebook-user-work';
 import { List } from '@rxweb/generics';
+import { FormGroup} from '@angular/forms';
 
 @Component({
     selector: "app-facebook-user-work-add",
@@ -18,6 +19,9 @@ export class FacebookUserWorkAddComponent extends AbstractFacebookUserWork imple
     //mj:any;
     facebookUserWorks:List<FacebookUserWork>;
     id: any;
+  
+    facebookUserWorkFormGroup: IFormGroup<FacebookUserWork>;
+ //  FacebookUserWorkFormGroup:FormGroup;
 
     constructor(private formBuilder: RxFormBuilder, private router:Router) {
         super();
@@ -27,22 +31,22 @@ export class FacebookUserWorkAddComponent extends AbstractFacebookUserWork imple
     ngOnInit(): void {
         this.facebookUserWork = new FacebookUserWork();
         this.facebookUserWorkFormGroup = this.formBuilder.formGroup(this.facebookUserWork) as IFormGroup<FacebookUserWork>;
-       //this.Get();
-        //this.Post();
-        // this.get({params:[2],queryParams:{UserId:2}}).subscribe(res => {
-        //             this.result = res;  }) 
-        //             console.log(this.result); 
-       
+      //  this.facebookUserWorkFormGroup.patchModelValue(this.result);
+
+      this.subscription = this.get({params:[localStorage.getItem('userId')],
+      queryParams:{UserId:localStorage.getItem('userId')}}).subscribe((t: List<FacebookUserWork>) => {
+        this.facebookUserWorks = t;
+        console.log(localStorage.getItem('userId'));
+        // location.reload();
+    })
+    // this.subscription = this.get({params:[localStorage.getItem('userId')],queryParams:{UserId:localStorage.getItem('userId')}}).subscribe((t: List<FacebookUserWork>) => {
+    //     this.facebookUserWorks = t; });
+    // console.log(localStorage.getItem('userId')); 
     }
-    GetBy(i:number)
-    {   
-        this.subscription = this.get({params:[i],queryParams:{UserId:this.id}}).subscribe((t: List<FacebookUserWork>) => {
-            this.facebookUserWorks = t;
-            console.log(this.id);
-        })
-    }
-    Patch() {
-        this.put({params:[2],body:{workName:"IIT",workDescription:"abc"}}).subscribe(res => {
+ 
+    Patch(userWorkId:any) {
+      //  this.show=false;
+        this.put({params:[userWorkId],body:this.facebookUserWorkFormGroup.value}).subscribe(res => {
             this.result = res;   
             console.log(this.result);     
         })
@@ -55,9 +59,11 @@ export class FacebookUserWorkAddComponent extends AbstractFacebookUserWork imple
             this.post({body: { workName:this.facebookUserWorkFormGroup.controls.workName.value,
                 workDescription:this.facebookUserWorkFormGroup.controls.workDescription.value,
                 workStartDate:this.facebookUserWorkFormGroup.controls.workStartDate.value,
-                workEndDate:this.facebookUserWorkFormGroup.controls.workEndDate.value,UserId:this.id}}).subscribe(r=>{this.result=r});
+                workEndDate:this.facebookUserWorkFormGroup.controls.workEndDate.value,UserId:localStorage.getItem('userId')}}).subscribe(r=>{this.result=r
             console.log(this.result);
-            this.router.navigate(["/work"]);
+        });
+            //location.reload();
+           // this.router.navigate(["/work"]);
 
     }
 
@@ -76,6 +82,19 @@ export class FacebookUserWorkAddComponent extends AbstractFacebookUserWork imple
         this.show=false;
         this.hide=true;
     }
+    Delete(userWorkId:any)
+    {
+           this.delete({params:[userWorkId],queryParams:{UserWorkId:userWorkId},body:{}}).subscribe(r=>{this.result=r});
+           console.log(this.result);
+    }
+//    Edit(userWorkId)
+//    {
+
+    
+//     this.router.navigate(["/facebook-user-works/edit"]);
+
+
+//    }
 
     ngOnDestroy(): void {
         if (this.subscription)

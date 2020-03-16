@@ -28,31 +28,30 @@ namespace FBRxweb.Infrastructure.Security
             UserClaim = userClaim;
             ContextAccessor = contextAccessor;
         }
-        public async Task<string> GetTokenAsync(vUser user)
+        public async Task<string> GetTokenAsync(FacebookUser user)
         {
-            var expirationTime = user.UserId == 0 ? DateTime.UtcNow.AddDays(1) : DateTime.UtcNow.AddMinutes(30);
+            var expirationTime = user.UserID == 0 ? DateTime.UtcNow.AddDays(1) : DateTime.UtcNow.AddMinutes(30);
             var token = TokenProvider.WriteToken(new[]{
                 new Claim(
-                    ClaimTypes.NameIdentifier, user.UserId.ToString()),
-                new Claim(ClaimTypes.Anonymous, (user.UserId == 0).ToString()),
-                    new Claim(ClaimTypes.Locality,user.LanguageCode),
-                    new Claim(CustomClaimTypes.TimeZone,user.ApplicationTimeZoneName)
+                    ClaimTypes.NameIdentifier, user.UserID.ToString()),
+                new Claim(ClaimTypes.Anonymous, (user.UserID == 0).ToString()),
+                    new Claim(ClaimTypes.Locality,user.Email),
+                    new Claim(CustomClaimTypes.TimeZone,user.MobileNo)
                     }, "Web", "User", expirationTime);
-            if (user.UserId != 0) await UserAccessConfig.SaveTokenAsync(user.UserId, "web", token, LoginUow);
+            if (user.UserID != 0) await UserAccessConfig.SaveTokenAsync(user.UserID, "web", token, LoginUow);
             this.AddCookie(user, token.Key);
             return token.Value;
         }
 
-        public async Task<string> RefereshTokenAsync(vUser user, UserConfig userConfig)
+        public async Task<string> RefereshTokenAsync(FacebookUser user, UserConfig userConfig)
         {
             if (!string.IsNullOrEmpty(userConfig.LanguageCode))
             {
-                var userRecord = await LoginUow.Repository<User>().SingleAsync(t => t.UserId == user.UserId);
-                userRecord.LanguageCode = userConfig.LanguageCode;
-                await LoginUow.RegisterDirtyAsync<User>(userRecord);
+                var userRecord = await LoginUow.Repository<FacebookUser>().SingleAsync(t => t.UserID == user.UserID);
+                await LoginUow.RegisterDirtyAsync<FacebookUser>(userRecord);
                 await LoginUow.CommitAsync();
             }
-            await UserAccessConfig.RemoveTokenAsync(user.UserId, userConfig.AudienceType, LoginUow);
+            await UserAccessConfig.RemoveTokenAsync(user.UserID, userConfig.AudienceType, LoginUow);
             return await this.GetTokenAsync(user);
         }
 
@@ -63,9 +62,9 @@ namespace FBRxweb.Infrastructure.Security
         }
 
 
-        private void AddCookie(vUser user, string value)
+        private void AddCookie(FacebookUser user, string value)
         {
-            var cookieName = user.UserId == 0 ? ANONYMOUS : REQUEST_IDENTITY;
+            var cookieName = user.UserID == 0 ? ANONYMOUS : REQUEST_IDENTITY;
             if (cookieName == REQUEST_IDENTITY && ContextAccessor.HttpContext.Request.Cookies.ContainsKey(ANONYMOUS))
                 ContextAccessor.HttpContext.Response.Cookies.Delete(ANONYMOUS);
             ContextAccessor.HttpContext.Response.Cookies.Append(cookieName, value);
@@ -78,9 +77,9 @@ namespace FBRxweb.Infrastructure.Security
 
     public interface IApplicationTokenProvider
     {
-        Task<string> GetTokenAsync(vUser user);
+        Task<string> GetTokenAsync(FacebookUser user);
 
-        Task<string> RefereshTokenAsync(vUser user, UserConfig userConfig);
+        Task<string> RefereshTokenAsync(FacebookUser user, UserConfig userConfig);
 
         Task RemoveTokenAsync(UserConfig userConfig);
     }

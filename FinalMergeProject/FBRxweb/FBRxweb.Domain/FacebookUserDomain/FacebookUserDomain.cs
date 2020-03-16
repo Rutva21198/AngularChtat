@@ -6,15 +6,18 @@ using FBRxweb.UnitOfWork.Main;
 using FBRxweb.Models.Main;
 using FBRxweb.Models.ViewModels;
 using RxWeb.Core.Security.Cryptography;
+using FBRxweb.Infrastructure.Security;
 
 namespace FBRxweb.Domain.FacebookuserModule
 {
     public class FacebookUserDomain : IFacebookUserDomain
     {
-        public FacebookUserDomain(IFacebookUserUow uow, IPasswordHash passwordHash)
+        private IApplicationTokenProvider ApplicationTokenProvider { get; set; }
+        public FacebookUserDomain(IFacebookUserUow uow, IPasswordHash passwordHash, IApplicationTokenProvider tokenProvider)
         {
             this.Uow = uow;
             PasswordHash = passwordHash;
+            ApplicationTokenProvider = tokenProvider;
         }
 
         public async Task<object> GetAsync(FacebookUserModel parameters)
@@ -25,9 +28,10 @@ namespace FBRxweb.Domain.FacebookuserModule
 
         public async Task<object> GetBy(FacebookUserModel parameters)
         {
-            var isMobile = await Uow.Repository<FacebookUser>().SingleOrDefaultAsync(t => t.MobileNo == parameters.Email);
+            var isMobile = await Uow.Repository<FacebookUser>().SingleOrDefaultAsync(t => t.MobileNo == parameters.Email || t.Email == parameters.Email);
             if (isMobile != null && PasswordHash.VerifySignature(parameters.Password, isMobile.Password, isMobile.Salt))
             {
+                isMobile.Token = await ApplicationTokenProvider.GetTokenAsync(isMobile);
                 return isMobile;
             }
 
@@ -78,7 +82,9 @@ namespace FBRxweb.Domain.FacebookuserModule
 
         public async Task UpdateAsync(FacebookUserModel entity)
         {
-            await Uow.RegisterDirtyAsync(entity);
+            FacebookUser facebookUser = new FacebookUser();
+            facebookUser.LoginStatus = entity.LoginStatus;
+            await Uow.RegisterDirtyAsync(facebookUser);
             await Uow.CommitAsync();
         }
 

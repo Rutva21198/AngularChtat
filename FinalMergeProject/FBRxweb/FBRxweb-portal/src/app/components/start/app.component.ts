@@ -7,6 +7,7 @@ import { ReactiveFormConfig } from '@rxweb/reactive-form-validators';
 import { RxHttp, http } from "@rxweb/http";
 import { anonymous } from '@rxweb/angular-router';
 import {FormBuilder,FormGroup} from '@angular/forms';
+import { AuthFilter, HttpResponseCode } from 'src/app/temp-service/AuthFilter';
 
 @anonymous()
 @http({
@@ -19,22 +20,24 @@ import {FormBuilder,FormGroup} from '@angular/forms';
 })
 export class AppComponent  extends RxHttp implements OnInit{
   
-  isShowDashboard:boolean = false;
+  isShowDashboard:boolean =false;
    subscription: Subscription;
    result:any;
    n:String;
+   id:any;
    show:boolean;
    hide:boolean;
-   display:boolean;
+   display:boolean = true;
   searchForm:FormGroup
   constructor(private browserStorage: BrowserStorage, private router: Router,private formBuilder:FormBuilder) {
     super();
-    this.show=false;
-    this.hide=false;
-    this.display=true;
+    
   }
   
   ngOnInit(): void {
+    console.log("hello");
+    
+    console.log("hello");
     HttpClientConfig.register({
       hostURIs: [{
         name: 'server',
@@ -44,42 +47,48 @@ export class AppComponent  extends RxHttp implements OnInit{
       {
         name: 'local',
         default: true,
-        uri: "https://localhost:44352"// 'https://localhost:44376' 
+        uri: "http://localhost:4200"// 'https://localhost:44376' 
       }],
-      filters: [],
-    //   // onError: (response: HttpResponse) => {
-    //   //   if (response.statusCode == 401
-    //   //   ) {
-    //   //     this.browserStorage.local.clearAll();
-    //   //     // this.baseToastr.error("Timeout")
-    //   //     this.router.navigate(["/login"])
-    //   //   }
-    //     // else if (response.statusCode == HttpResponseCode.InternalServerError) {
-    //     //   this.baseToastr.error("Error occur")
-    //     // }
-    //     else if (response.statusCode == 403) {
-    //       this.router.navigate(["/unauthorized"]);
-    //     }
-    //   }
+      filters: [{ model: AuthFilter }],
+      onError: (response: HttpResponse) => {
+        if (response.statusCode == 401
+        ) {
+          this.browserStorage.local.clearAll();
+          // this.baseToastr.error("Timeout")
+          this.router.navigate(["/login"])
+        }
+        else if (response.statusCode == HttpResponseCode.InternalServerError) {
+        //   this.baseToastr.error("Error occur")
+        }
+        else if (response.statusCode == 403) {
+          this.router.navigate(["/unauthorized"]);
+        }
+      }
      })
-     this.show=false;
-    this.hide=true;
-    this.display=true;
+    //  this.show=false;
+    // this.hide=true;
+    // this.display=true;
 
-    var auth = this.browserStorage.local.get("auth");
+    let auth = localStorage.getItem("auth");
+    console.log(auth);
     if (auth) {
-      this.router.navigate(["/users"])
+     // this.router.navigate(["/v-all-posts"])
       this.isShowDashboard = true;
+      this.display=false;
+      this.id=localStorage.getItem("userId");
+ 
     }
-    // else {
-    //   this.browserStorage.local.clearAll();
-    //   this.router.navigate(["/login"])
-    //   this.isShowDashboard = false;
-    // }
+    else {
+      this.browserStorage.local.clearAll();
+      this.isShowDashboard = false;
+      this.display=true;
+      this.router.navigate(["/login"])
+      
+    }
 
     ReactiveFormConfig.set({
       "validationMessage": {
-        "required": "You can't leave this empty",
+        "required": "this field is required",
         "notEmpty": "You can't leave this empty",
         "minLength": "Minimum  characters required",
         "maxLength": "More than {{1}}  characters are not permitted",
@@ -95,12 +104,28 @@ export class AppComponent  extends RxHttp implements OnInit{
         "latitude": "Please enter a valid latitude",
         "longitude": "Please enter a valid longitude",
         "url": "{{0}} Is not the correct url pattern.",
+        "digit":"Only digit are allowed",
+        "mask":"Enter only 10 digits",
+        
         "password": "Password length should be of 8 to 20 characters and should have atleast one uppercase, one lowercase letter, a number and a special character, without any whitespaces"
       }, "reactiveForm": { "errorMessageBindingStrategy": 1 }
      });
      this.searchForm=this.formBuilder.group({
        n:['']
      })
+    //  var auth = this.browserStorage.local.get('auth');
+    
+    // if (auth) {
+    //   this.display=false;
+    //   this.hide=false;
+    //   this.show=true;
+    // }
+    // else{
+    //   this.display=true;
+    //   this.hide=true;
+    //   this.show=false;
+    
+    // }
   }
 
   loginClicked(isClicked: boolean): void {
@@ -114,9 +139,9 @@ export class AppComponent  extends RxHttp implements OnInit{
   login()
   {
     this.router.navigate(["/login"]);
-    this.display=false;
-    this.hide=false;
-    this.show=true;
+    // this.display=false;
+    // this.hide=false;
+    // this.show=true;
   }
   messenger()
   {
@@ -124,10 +149,18 @@ export class AppComponent  extends RxHttp implements OnInit{
   }
   home()
   {
-    this.router.navigate(["/facebook-users/add"])
+    this.router.navigate(["/v-all-posts"])
   }
   profile(){
-    this.router.navigate(["/facebook-users/edit"])
+    this.router.navigate(["/vUserProfile"])
+  }
+  changePassword(){
+    this.router.navigate(["/changePassword"])
+    
+  }
+  logActivity()
+  {
+    this.router.navigate(["/logActivity"])
   }
   Search()
   {
@@ -136,7 +169,7 @@ export class AppComponent  extends RxHttp implements OnInit{
       var name=t.split(" ");
       var firstname=name[0];
       var lastname=name[1];
- 
+    
     this.subscription=this.post({path:'api/SearchSearchName',body:{firstName:firstname,lastName:''}})
     .subscribe((t:any)=>this.result=JSON.parse(t));
             console.log(this.result);
@@ -149,6 +182,7 @@ export class AppComponent  extends RxHttp implements OnInit{
 
 
   }
+
 //  password=false;
 //  showcp()
 //  {
@@ -168,8 +202,16 @@ export class AppComponent  extends RxHttp implements OnInit{
   // }
   logout()
   {
-
-    this.router.navigate(["/login"]);
+    this.browserStorage.local.clearAll();
+    localStorage.clear();
+    if (!localStorage.getItem('foo')) { 
+      localStorage.setItem('foo', 'no reload') 
+      this.router.navigate(["/"]);
+      location.reload() 
+    } else {
+      localStorage.removeItem('foo') 
+    }
+    //this.router.navigate(["/login"]);
   }
 
 }

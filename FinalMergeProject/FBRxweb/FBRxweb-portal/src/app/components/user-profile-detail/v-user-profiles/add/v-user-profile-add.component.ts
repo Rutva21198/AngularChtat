@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from "@angular/core"
 import { Subscription } from 'rxjs';
 
 import { RxFormBuilder, IFormGroup } from '@rxweb/reactive-form-validators';
-
+import {Router} from '@angular/router';
 import { vUserProfile,CoverPhoto,ProfilePhoto } from '@app/models';
 import { AbstractvUserProfile } from '../domain/abstract-v-user-profile';
 import { List } from '@rxweb/generics';
@@ -26,13 +26,13 @@ export class vUserProfileAddComponent extends AbstractvUserProfile implements On
     id: any;
     PhotoFormGroup:FormGroup;
  
-    constructor(private formBuilder: RxFormBuilder,private photoformBuilder:FormBuilder) {
+    constructor(private formBuilder: RxFormBuilder,private photoformBuilder:FormBuilder,private router:Router) {
         super();
        
-
+        this.id=localStorage.getItem('userId');
             // console.log(this.result); 
        // this.Get();
-       this.get({params:[1],queryParams:{UserId:2}}).subscribe(res => {
+       this.get({params:[ this.id],queryParams:{UserId:2}}).subscribe(res => {
         this.result = res;     
      })
         console.log(this.result); 
@@ -55,27 +55,39 @@ export class vUserProfileAddComponent extends AbstractvUserProfile implements On
  
     }
     // Get() {
-    //    this.get({params:[1],queryParams:{UserId:1}}).subscribe(res => {
+    //    this.get({params:[ this.id],queryParams:{UserId: this.id}}).subscribe(res => {
     //     this.result = res;      })
     //     console.log(this.result);     
     //  }
     changeCoverPhoto()
     {
-        this.subscription=this.post({path:"api/SearchChangeCoverPhoto",body:{Coverphoto:this.PhotoFormGroup.controls.cover.value,id:1}})
+        this.subscription=this.post({path:"api/SearchChangeCoverPhoto",body:{Coverphoto:this.PhotoFormGroup.controls.cover.value,id: this.id}})
         .subscribe((t:any)=>{this.result=t;})
         console.log(this.PhotoFormGroup);
               //  console.log(this.result);
               //  console.log(this.id);
               
     }
+    work()
+    {
+   // this.password=true;
+
+        this.router.navigate(["/facebook-user-works/add"]);
+
+  }
+  education()
+  {
+   // this.password=true;
+    this.router.navigate(["/education-details/add"]);
+  }
     changeProfilePhoto()
     {
         console.log(this.vUserProfileFormGroup);
-        this.subscription=this.post({path:"api/SearchChangeProfilePhoto",body:{photo:this.PhotoFormGroup.controls.profile.value,id:1}})
+        this.subscription=this.post({path:"api/SearchChangeProfilePhoto",body:{photo:this.PhotoFormGroup.controls.profile.value,id: this.id}})
         .subscribe((t:any)=>{this.result=t});
         console.log(this.id);
 
-    //     this.post({path:'api/SearchChangeProfilePhoto',body:{Photo:this.vUserProfileFormGroup.controls.profilephoto.value,id:1}})
+    //     this.post({path:'api/SearchChangeProfilePhoto',body:{Photo:this.vUserProfileFormGroup.controls.profilephoto.value,id: this.id}})
     //     .subscribe(res=>{this.result=res;
     //    console.log(this.result);
     //    }

@@ -22,7 +22,7 @@ export class ChatMeessageAddComponent extends AbstractChatMeessage implements On
         this.chatMeessage = new ChatMessage();
         this.chatMeessageFormGroup = this.formBuilder.formGroup(this.chatMeessage) as IFormGroup<ChatMessage>;
 
-        this.subscription = this.post({body:{id:JSON.parse(sessionStorage.getItem('userData')).userID}}).subscribe((t: any) => {
+        this.subscription = this.post({body:{id:localStorage.getItem('userId')}}).subscribe((t: any) => {
             this.chatMeessage = JSON.parse(t);
             console.log(this.chatMeessage);
         })

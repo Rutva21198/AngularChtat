@@ -1,0 +1,29 @@
+<div class="container">
+        <div class="jumbotron">
+      <div class="col-md-6 offset-md-3">
+          <h5>Your Activity</h5>
+    <form>
+    
+      <div class = "table">
+          
+          <thead>
+             
+              <th scope="col">User</th>
+              <th scope="col">Post</th>
+              <th scope="col">Activity</th>
+            
+          </thead>
+    
+          <tbody *ngFor="let u of result; let i=index">
+              <tr>
+                  <td>{{u.name}}</td>
+                  <td>{{u.post}}</td>
+                  <td>{{u.activity}}</td>
+                 
+              </tr>
+          </tbody>
+      </div>
+    </form>
+      </div>
+    </div>
+    </div>
