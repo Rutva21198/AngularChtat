@@ -1,0 +1,38 @@
+<div class="col-md-6 offset-md-3">
+    <form [formGroup]="facebookUserDetailFormGroup">
+                    <div class="form-group">
+                        <label>Bio</label>
+                        <input type="text" formControlName="bio" class="form-control"  />
+                        <small class="form-text text-danger" *ngIf="facebookUserDetailFormGroup.controls.bio.errors">{{facebookUserDetailFormGroup.controls.bio.errors.required.message}}<br/></small>
+                    </div>
+                    <div class="form-group">
+                        <label>currentCity</label>
+                        <input type="text" formControlName="currentCity" class="form-control"  />
+                        <small class="form-text text-danger" *ngIf="facebookUserDetailFormGroup.controls.currentCity.errors">{{facebookUserDetailFormGroup.controls.currentCity.errors.required.message}}<br/></small>
+                    </div>
+                    <div class="form-group">
+                        <label>Home Town</label>
+                        <input type="text" formControlName="homeTown" class="form-control"  />
+                        <small class="form-text text-danger" *ngIf="facebookUserDetailFormGroup.controls.homeTown.errors">{{facebookUserDetailFormGroup.controls.homeTown.errors.required.message}}<br/></small>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label>Work Description</label>
+                        <input type="text" formControlName="relationshipAO" class="form-control"  />
+                        <small class="form-text text-danger" *ngIf="facebookUserDetailFormGroup.controls.relationshipAO.errors">{{facebookUserDetailFormGroup.controls.relationshipAO.errors.required.message}}<br/></small>
+                    </div> -->
+                    <div >
+                        <label>Relationship</label>
+                        <br>
+                      <div class="form-check form-check-inline">
+                        <input  type="radio" formControlName="relationshipAO"  name="relationshipAO"  value="4">
+                    <label class="form-check-label" >Single</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input  type="radio" name="relationshipAO"  value="5" formControlName="relationshipAO" >
+                    <label class="form-check-label" >Married</label>
+                  </div>
+                </div>
+                    <button class="btn btn-success"  (click)="Post()">Add </button>
+                  
+    </form>
+</div>
