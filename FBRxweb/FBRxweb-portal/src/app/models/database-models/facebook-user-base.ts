@@ -62,13 +62,13 @@ export class FacebookUserBase {
 
 
 //#region createdDateTime Prop
-        @required()
+      //  @required()
         createdDateTime : any;
 //#endregion createdDateTime Prop
 
 
 //#region loginStatus Prop
-        @required()
+     //   @required()
         loginStatus : boolean;
 //#endregion loginStatus Prop
 
